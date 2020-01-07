@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<base href="http://gera59ki.beget.tech/">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/queries.css">
+	<link rel="icon" href="img/icons/favicon.png">
+	<title>About me</title>
+</head>
+<body>
+	<img src="img/elka.png" class="elka" alt="elka">
+	<header>
+		<div class="heading container">
+			<div id="logo" class="headLogo">
+				<img src="img/icons/icon.png" alt="logo">
+			</div>
+			<div class="navigation">
+				<nav>		
+					<ul>
+						<div class="headnav">
+							<li id="albums">albums</li>
+							<li id="updates">updates</li>
+							<li id="aboutAuthor">about me</li>							
+							<li id="radio" class="route"><img src="img/icons/radio.png" alt="radio"></li>
+						</div>
+						<div class="social">
+							<li>social media:</li>
+							<a href="https://vk.com/carriageuknow"><img src="img/icons/vk.png" alt="vk"></a>
+							<a href="https://soundcloud.com/carriageuknow"><img src="img/icons/soundcloud.png" alt="soundcloud"></a>
+							<a href="https://carriageuknow.bandcamp.com/"><img src="img/icons/bandcamp.png" alt="bandcamp"></a>
+						</div>
+						<div class="donat">
+							<li>donation:</li>
+							<a href="https://www.sberbank.kz/ru/individuals"><img src="img/icons/sberbank.png" alt="sberbank"></a>
+							<a href="https://qiwi.com/p/79506252527"><img src="img/icons/qiwi.png" alt="QIWI"></a>
+						</div>
+					</ul>
+				</nav>
+			</div>
+			<h1>привет</h1>
+		</div>
+	</header>
+	<main id="main">
+		<div class="infoMain" id="aboutAuthor">
+			<h1>Об авторе всего этого</h1>
+			<p>Сайт музыканта-самоучки. До начала всего этого слушал много разной 		инструментальной музыки, которой в итоге и вдохновляюсь.
+				Было принято решение что-то делать самому. Начал изучать эту тему и загорелась идея сделать что-то вроде "идеальной музыки" для себя. Совместить лучшее из всего что я слушаю сам, смешивать жанры и кайфовать, делать свой звук и перенести свой перфекционизм сюда. В итоге 12.10.18 был создан персонаж "<span class="name">архитектура</span>" (привет, дрю. пиздец...), который в последующем будет переименован в <span class="name">Carriage</span>. Некоторое время прикидывал чё к чему, нарабатывая, в основном, скиллуху в техническом плане. Вскоре пишутся альбомы <a href="LevelUpPartOne.html">"Level Up Part One"</a>, <a href="allworld.html">"ВЕСЬ МИР - ТЕАТР"</a>, а так же <a href="Questions_Questions_Questions_Questions.html">"QuestionsQuestionsQuestionsQuestions"</a>.
+				<p>	Цитата главного и единственного лица(то есть меня), которое представляет данную 		группу:<p class="quote">«Я ненавижу почти всю музыку что сейчас выходит, это 			одинаковое говнище, которое не имеет никакой творческой ценности и 		люди 	сознательно делают одинаковую малокачественную хуйню. 			Хочется сделать своё самобытное и клёвое».</p>
+				<p>
+				<p>Альбом <a href="Questions_Questions_Questions_Questions.html">QQQQ,</a> выпущенный 10 Ноября 2019, является хорошим отражением 		всей моей музыки. Я доволен каждым треком оттуда, на данный момент 		рекомендую ознакомиться именно с ним, чтобы понять, что я в целом 		делаю.
+				<p>Был вдохновлен такими персонажами, как:
+				<a href="https://soundcloud.com/drewthearchitect">drew the architect</a>,
+				<a href="https://soundcloud.com/fox-wedding">foxwedding</a>,
+				<a href="https://soundcloud.com/greaf"> GREAF</a>,
+				<a href="https://soundcloud.com/cat-soup-cfgsta">cat soup</a>, 
+				<a href="https://soundcloud.com/grayera">grayera</a>,
+				<a href="https://soundcloud.com/drip-133">drip-133</a>,
+				<a href="https://soundcloud.com/kodyakhiphop">kodyak</a>,
+				<a href="https://vk.com/wetcatvk">wet cat</a>.
+			</p>
+			<script src="js/jquery-3.4.1.min.js"></script>
+			<script src="js/script.js"></script>
+		</div>
+	</main>
+	<footer>
+		<div class="audio">
+		        <div class="settings_play container">
+		            <div class="prevbtn" id="prev" data-id="-1"></div> 
+		            <div class="play" id="-1" data-id="-1"></div>
+		            <div class="nextbtn" id="next" data-id="-1"></div>
+		            <!-- <div class="shuffle" id="-1" data-id="-1"></div> -->
+		             <div class="repeating repeat" id="-1" data-id="-1"></div>
+		            <div class="slideContainer">
+						<input type="range" min="0" max="100" value="100" id="myRange" class="slider">
+						<p>Value: <span id="value"></span></p>
+					</div>
+		            <div class="nameSong_name">...</div> 
+		        </div>
+		        <div class="bar container">
+		        	<div class="setTime"></div>
+		        	<div class="time_play">0:00</div>
+		        	<img class="muzlog">
+             		<div class="range">
+                 		<div class="progress"></div>
+                 	<div class="load"></div>
+             		</div>
+		        </div>
+		    </div>
+	</footer>
+	<!-- <script src="js/ajax.js"></script> -->
+	<script src="js/value.js"></script>
+</body>
+</html>
