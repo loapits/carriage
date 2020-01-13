@@ -210,7 +210,7 @@ li {
 }
 
 /*Main*/
-main {
+.main {
   height: 515px;
   padding-top: 11px;
   padding-bottom: 1px;
