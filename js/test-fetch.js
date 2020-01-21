@@ -1,7 +1,6 @@
 'use strict';
 /* попробовать повторно инициализировать скрипты*/ 
-let headerEl = document.querySelector('header');
-let mainEl = document.querySelector('main');
+let headerEl = document.querySelector('.delegation');
 
 function load(url) {
         fetch(url).then(response => {
@@ -64,10 +63,6 @@ headerEl.addEventListener('click', event => {
             changeURL('radio.html', 'Radio');
             loadScr('js/script(radio).js');
             break;
-    }
-});
-mainEl.addEventListener('click', event => {
-    switch(event.target.id){
         case 'QQQQ':
             load('questions_questions_questions_questions.html');
             changeURL('questions_questions_questions_questions.html', 'QQQQ');
@@ -83,5 +78,5 @@ mainEl.addEventListener('click', event => {
             changeURL('allworld.html', 'ВЕСЬ МИР-ТЕАТР');
             loadScr('js/script(worldtheatre).js');
             break;
-    }
-});
+        }
+    });
