@@ -1,85 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<!-- <base href="http://gera59ki.beget.tech/"> -->
-	<link rel="stylesheet" href="css/reset.css">
-	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="css/queries.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<base href="https://carr1ageee.000webhostapp.com/">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
 	<link rel="icon" href="img/icons/favicon.png">
-	<title>QQQQ</title>
+    <title>QQQQ</title>
 </head>
 <body>
-	<header>
-		<div class="heading container">
-			<div id="logo" class="headLogo">
-				<img src="img/icons/icon.png" alt="logo">
+    <header>
+        <div class="container">
+			<div class="head-logo">
+				<img src="img/icons/icon.png" id="logo" alt="Carriage">
 			</div>
-			<div class="navigation">
-				<nav>		
-					<ul>
-						<div class="headnav">
-							<li id="albums">albums</li>
-							<li id="updates">updates</li>
-							<li id="aboutAuthor">about me</li>							
-							<img class="route" src="img/icons/radio.png" id="radio" alt="radio">
-						</div>
-						<div class="social">
-							<li>social media:</li>
-							<a href="https://vk.com/carriageuknow"><img src="img/icons/vk.png" alt="vk"></a>
-							<a href="https://soundcloud.com/carriageuknow"><img src="img/icons/soundcloud.png" alt="soundcloud"></a>
-							<a href="https://carriageuknow.bandcamp.com/"><img src="img/icons/bandcamp.png" alt="bandcamp"></a>
-						</div>
-						<div class="donat">
-							<li>donation:</li>
-							<a href="https://www.sberbank.kz/ru/individuals"><img src="img/icons/sberbank.png" alt="sberbank"></a>
-							<a href="https://qiwi.com/p/79506252527"><img src="img/icons/qiwi.png" alt="QIWI"></a>
-						</div>
-					</ul>
-				</nav>
-			</div>
-			<h1>привет</h1>
+			<nav class="navigation">		
+				<ul class="head-navigation">
+                    <li><button id="albums" class="link">albums</button></li>
+					<li><button id="updatesHead" class="link">updates</button></li>
+					<li><button id="aboutMe" class="link">about me</button></li>		
+                    <li><button id="radio" class="radio image"></button></li>
+				</ul>
+				<ul class="social">
+					<li>social media:</li>
+					<li><a href="https://vk.com/carriageuknow" class="image vk"></a></li>
+					<li><a href="https://soundcloud.com/carriageuknow" class="image sound"></a></li>
+					<li><a href="https://carriageuknow.bandcamp.com/" class="image band"></a></li>
+				</ul>
+				<ul class="donat">
+					<li>donation:</li>
+					<li><a href="https://www.sberbank.kz/ru/individuals" class="image sber"></a></li>
+					<li><a href="https://qiwi.com/p/79506252527" class="image qiwi"></a></li>
+				</ul>
+			</nav>
+			<h1 class="hi">привет</h1>
 		</div>
-	</header>
-	<main id="main">
-		<div id="" class="main">
-			<div id="qqqq" class="wrp qqqq container">
-				<img src="img/albums/QQQQ.jpg" alt="albumcover">
-				<h1>QQQQ</h1>
+    </header>
+    <main id="main">
+        <div class="main delegation container">
+			<div id="qQqQ" class="wrp qqqq container">
+				<img src="img/albums/QQQQ.jpg" class="albumcover" alt="cover">
+				<h3>QQQQ</h3>
 			</div>
 		</div>
-		<script src="js/test-fetch.js"></script>
-		<script src="js/jquery-3.4.1.min.js"></script>
-		<script src="js/script(QQQQ).js"></script>
-		<script src="js/script.js"></script>
-	</main>
-	<footer>
-		<div class="audio">
-		        <div class="settings_play container">
-		            <div class="prevbtn" id="prev" data-id="-1"></div> 
-		            <div class="play" id="-1" data-id="-1"></div>
-		            <div class="nextbtn" id="next" data-id="-1"></div>
-		            <!-- <div class="shuffle" id="-1" data-id="-1"></div> -->
-		             <div class="repeating repeat" id="-1" data-id="-1"></div>
-		            <div class="slideContainer">
-						<input type="range" min="0" max="100" value="100" id="myRange" class="slider">
-						<p>Value: <span id="value"></span></p>
-					</div>
-		            <div class="nameSong_name">...</div> 
-		        </div>
-		        <div class="bar container">
-		        	<div class="setTime"></div>
-		        	<div class="time_play">0:00</div>
-		        	<img class="muzlog">
-             		<div class="range">
-                 		<div class="progress"></div>
-                 	<div class="load"></div>
-             		</div>
-		        </div>
-		    </div>
+    </main>
+	<footer class="audio">
+        <div class="settings_play container">
+			<button class="prevbtn bottom-buttons" id="prev" data-id="-1"></button>
+			<button class="play bottom-buttons" id="play" data-id="-1"></button>
+			<button class="nextbtn bottom-buttons" id="next" data-id="-1"></button>
+			<button class="repeating repeat bottom-buttons" data-id="-1"></button>
+			<!-- <button class="shuffle bottom-buttons" id="shuffle" data-id="-1"></button> -->
+	        <div class="volume">
+				<input type="range" min="0" max="100" value="100" id="myRange" class="volume-input">
+				<p>Value: <span id="value"></span></p>
+			</div>
+	        <div class="nameSong_name">...</div> 
+	    </div>
+	    <div class="bar container">
+	    	<div class="setTime"></div>
+	    	<div class="time_play">0:00</div>
+			<img src="img/covers/albcov.png" class="muzlog" alt="cover">
+			<div class="range">
+				<div class="progress"></div>
+				<div class="load"></div>
+			</div>
+		</div>
 	</footer>
+	<script src="js/test-fetch.js"></script>
+	<script src="js/jquery-3.4.1.min.js"></script>
+	<script src="js/script(QQQQ).js"></script>
+	<script src="js/script.js"></script>
 	<script src="js/value.js"></script>
 </body>
 </html>

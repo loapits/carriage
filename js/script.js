@@ -3,9 +3,12 @@
 	$(document).ready(function(){
 	let	id_song, Song, i,volume = 1, 
 	songs = songe;
-	for (i=0; i<songs.length; i++){
-		$('.wrp').append('<div class="song" id="'+songs[i][0]+'"><div class="songH"></div><div class="play-pause_song"></div><div class="nameSong">'+songs[i][1]+'</div><div class="time">'+parseInt(songs[i][3]/60)+':'+parseInt(songs[i][3]%60)+'</div></div>');
+	function script(){
+		for (i=0; i<songs.length; i++){
+			$('.wrp').append('<div class="song" id="'+songs[i][0]+'"><div class="songH"></div><button class="play-pause_song"></button><div class="nameSong">'+songs[i][1]+'</div><div class="time">'+parseInt(songs[i][3]/60)+':'+parseInt(songs[i][3]%60)+'</div></div>');
+		};
 	}
+	script();
 	function playNewSong (id){
 		let curtime, cur = -100;
 		$('.audio .nameSong_name').text(songs[id][1]);
@@ -29,7 +32,7 @@
 			});
 			
 			Song.addEventListener('load', () =>{
-				let load = Song.buffered.end(0);
+				let load = Song.buffered.start(0);
 				load = -((songs[id_song][3]-load)*100)/songs[id_song][3];
 				$('.load').css({'left':load+'%'});
 			});
