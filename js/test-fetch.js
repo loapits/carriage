@@ -10,6 +10,7 @@ function load(url) {
             let main = parseText.querySelector('main');
             document.querySelector('main').innerHTML = main.innerHTML;            
         });       
+       console.log(123123);
 };
 
 function changeURL (url, title){
@@ -48,38 +49,38 @@ headerEl.addEventListener('click', event => {
             changeURL('about_author.html', 'About me');
             break;
         case 'radio':
-            load('radio.html');
+            setTimeout(load, 200, 'radio.html');
             changeURL('radio.html', 'Radio');
             setTimeout(loadScr2, 300);
-            setTimeout(loadScr, 200, 'js/script(radio).js');
+            setTimeout(loadScr, 100, 'js/script(radio).js');
             
             break;
         case 'QQQQ':
-            load('questions_questions_questions_questions.html');
+            setTimeout(load, 200, 'questions_questions_questions_questions.html');
             changeURL('questions_questions_questions_questions.html', 'QQQQ');
             setTimeout(loadScr2, 300);
-            setTimeout(loadScr, 200, 'js/script(QQQQ).js');
+            setTimeout(loadScr, 100, 'js/script(QQQQ).js');
            
             break;
         case 'LVLUP':
-            load('level_up_part_one.html');
+            setTimeout(load, 200, 'level_up_part_one.html');
             changeURL('level_up_part_one.html', 'LVLUP(pt1)');
             setTimeout(loadScr2, 300);
-            setTimeout(loadScr, 200, 'js/script(LevelUpPartOne).js');
+            setTimeout(loadScr, 100, 'js/script(LevelUpPartOne).js');
             
             break;
         case 'ALLWORLD':
-            load('allworld.html');
+            setTimeout(load, 200, 'allworld.html');
             changeURL('allworld.html', 'ВЕСЬ МИР-ТЕАТР');
             setTimeout(loadScr2, 300);
-            setTimeout(loadScr, 200, 'js/script(worldtheatre).js');
+            setTimeout(loadScr, 100, 'js/script(worldtheatre).js');
             
             break;
         case 'EARLY':
-            load('early-morning-and-euphoria.html');
+            setTimeout(load, 200, 'early-morning-and-euphoria.html');
             changeURL('early-morning-and-euphoria.html', 'EARLY MORNING AND EUPHORIA');
             setTimeout(loadScr2, 300);
-            setTimeout(loadScr, 200, 'js/script(EARLY).js');
+            setTimeout(loadScr, 100, 'js/script(EARLY).js');
             break;
     }
-})
+});
