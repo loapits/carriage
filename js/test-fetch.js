@@ -2,6 +2,13 @@
 /* попробовать повторно инициализировать скрипты*/ 
 let headerEl = document.querySelector('body');
 
+/* let link = document.querySelectorAll('.link');
+for(let i = 0; i < link.length; i++){
+    link[i].onclick = function() {
+        return false;
+    };
+}; */
+
 function load(url) {
         fetch(url).then(response =>
         response.text()).then(text => {
@@ -10,7 +17,6 @@ function load(url) {
             let main = parseText.querySelector('main');
             document.querySelector('main').innerHTML = main.innerHTML;            
         });       
-       console.log(123123);
 };
 
 function changeURL (url, title){
@@ -23,16 +29,13 @@ function loadScr(urls){
     src1.src = urls;
     src1.type="text/javascript";
     document.getElementsByTagName("main")[0].appendChild(src1); 
-    console.log(2);
 }
 function loadScr2() {
     let src1 = document.createElement("script");
     src1.src = 'js/script.js';
     src1.type="text/javascript";
     document.getElementsByTagName("main")[0].appendChild(src1);
-    console.log(1);
 }
-
  
 headerEl.addEventListener('click', event => {
     switch(event.target.id){
