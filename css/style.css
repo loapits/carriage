@@ -52,25 +52,34 @@ header{
 .social a, .donat a{
   color: #000;
 }
-.head-navigation button{
+.head-navigation a{
   padding: 0;
   border: none;
   font: inherit;
   color: inherit;
   outline: none;
   background-color: transparent;
-  padding-bottom: 10px;
   text-transform: uppercase;
+  text-decoration: none;
   font-size: 12px;
 }
-.head-navigation button:hover{
+.head-navigation a:hover{
   cursor: pointer;
 }
-.link:hover{
+.head-navigation a:hover{
+  cursor: pointer;
+}
+.link a:active{
+  transform: translateY(1px);
+  filter: saturate(150%);
+}
+.bord:hover{
+  padding-bottom: 6px;
   border-bottom: 2px solid #999;
   background-color: transparent;
 }
-.link:focus{
+.bord:focus{
+  padding-bottom: 6px;
   border-bottom: 2px solid #999;
   background-color: transparent;
 }
@@ -89,7 +98,6 @@ header{
   transition: all 0.9s ease;
   transform: rotate(720deg);
   outline: none;
-
 }
 .radio{
   background: url(../img/icons/radio.png) no-repeat center top/cover;
@@ -154,7 +162,7 @@ main {
   text-shadow: #fc3 2px 2px 2px;
   font-weight: bold;
 }
-.albums-list button{
+.albums-list a{
   display: inline-flex;
   flex-wrap: wrap;
   width: 250px;
@@ -163,13 +171,17 @@ main {
   outline: none;
   border: none;
 }
-.albums-list button:hover{
+.albums-list a:hover{
   cursor: pointer;
   box-shadow: 0 0 20px rgba(0, 0, 0, 1);
 }
-.albums-list button:focus{
+.albums-list a:focus{
   cursor: pointer;
   box-shadow: 0 0 20px rgba(0, 0, 0, 1);
+}
+.albums-list a:active{
+  transform: translateY(1px);
+  filter: saturate(150%);
 }
 /* Images */
 #QQQQ{

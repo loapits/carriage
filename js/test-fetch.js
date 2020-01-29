@@ -1,89 +1,98 @@
 'use strict';
 /* попробовать повторно инициализировать скрипты*/ 
-let headerEl = document.querySelector('body');
+let headEl = document.querySelector('body');
 
-/* let link = document.querySelectorAll('.link');
+let link = document.querySelectorAll('.link');
 for(let i = 0; i < link.length; i++){
-    link[i].onclick = function() {
-        return false;
+    link[i].onclick = (e) => { 
+        e.preventDefault();
     };
-}; */
-
-function load(url) {
-        fetch(url).then(response =>
-        response.text()).then(text => {
-            let parser = new DOMParser();
-            let parseText =  parser.parseFromString(text, 'text/html');
-            let main = parseText.querySelector('main');
-            document.querySelector('main').innerHTML = main.innerHTML;            
-        });       
 };
 
-function changeURL (url, title){
-    window.history.replaceState({}, 'Carriage', url);
-    document.getElementsByTagName('title')[0].innerHTML = title;
-};
-
-function loadScr(urls){    
+function loadPlaylist(urls){    
     let src1 = document.createElement("script");
     src1.src = urls;
     src1.type="text/javascript";
     document.getElementsByTagName("main")[0].appendChild(src1); 
+    console.log('playlist');
 }
-function loadScr2() {
-    let src1 = document.createElement("script");
-    src1.src = 'js/script.js';
-    src1.type="text/javascript";
-    document.getElementsByTagName("main")[0].appendChild(src1);
+
+function loadPlayer() {
+    let src2 = document.createElement("script");
+    src2.src = 'js/script.js';
+    src2.type="text/javascript";
+    document.getElementsByTagName("main")[0].appendChild(src2);
+    console.log('player');
 }
- 
-headerEl.addEventListener('click', event => {
+
+function loadFetch() {
+    let src2 = document.createElement("script");
+    src2.src = 'js/test-fetch.js';
+    src2.type="text/javascript";
+    document.getElementsByTagName("main")[0].appendChild(src2);
+    console.log('fetch');
+}
+
+function loadPage(url) {
+    return fetch(url).then(response => {
+        return response.text();
+    })
+    .then(text => {
+        let parser = new DOMParser();
+        let parseText =  parser.parseFromString(text, 'text/html');
+        let main = parseText.querySelector('main');
+        document.querySelector('main').innerHTML = main.innerHTML; 
+        console.log('page');   
+    });       
+};
+function loadAllScr(url, urls) {
+    setTimeout(loadPlaylist, 200, urls);
+    setTimeout(loadPlayer, 300);
+    setTimeout(loadPage, 100, url);
+}
+function changeURL (url, title){
+    history.pushState({}, 'Carriage', url);
+    document.getElementsByTagName('title')[0].innerHTML = title;
+};
+
+headEl.addEventListener('click', event => {
     switch(event.target.id){
+        case 'logo':
+            loadAllScr('index.html');
+            changeURL('index.html', 'Albums');
+            break;
         case 'albums':
-            load('index.html');
+            loadAllScr('index.html');
             changeURL('index.html', 'Albums');
             break;
         case 'updatesHead':
-            load('updates.html');
+            loadAllScr('updates.html');
             changeURL('updates.html', 'Updates');
             break;
         case 'aboutMe':
-            load('about_author.html');
+            loadAllScr('about_author.html');
             changeURL('about_author.html', 'About me');
             break;
         case 'radio':
-            setTimeout(load, 200, 'radio.html');
+            loadAllScr('radio.html', 'js/script(radio).js');
             changeURL('radio.html', 'Radio');
-            setTimeout(loadScr2, 300);
-            setTimeout(loadScr, 100, 'js/script(radio).js');
-            
             break;
         case 'QQQQ':
-            setTimeout(load, 200, 'questions_questions_questions_questions.html');
+            loadAllScr('questions_questions_questions_questions.html', 'js/script(QQQQ).js');
             changeURL('questions_questions_questions_questions.html', 'QQQQ');
-            setTimeout(loadScr2, 300);
-            setTimeout(loadScr, 100, 'js/script(QQQQ).js');
-           
             break;
         case 'LVLUP':
-            setTimeout(load, 200, 'level_up_part_one.html');
-            changeURL('level_up_part_one.html', 'LVLUP(pt1)');
-            setTimeout(loadScr2, 300);
-            setTimeout(loadScr, 100, 'js/script(LevelUpPartOne).js');
-            
+            loadAllScr('level_up_part_one.html', 'js/script(LevelUpPartOne).js');
+            changeURL('level_up_part_one.html', 'LVLUP(pt1)');            
             break;
         case 'ALLWORLD':
-            setTimeout(load, 200, 'allworld.html');
+            loadAllScr('allworld.html', 'js/script(worldtheatre).js');
             changeURL('allworld.html', 'ВЕСЬ МИР-ТЕАТР');
-            setTimeout(loadScr2, 300);
-            setTimeout(loadScr, 100, 'js/script(worldtheatre).js');
-            
             break;
         case 'EARLY':
-            setTimeout(load, 200, 'early-morning-and-euphoria.html');
+            loadAllScr('early-morning-and-euphoria.html', 'js/script(EARLY).js');
             changeURL('early-morning-and-euphoria.html', 'EARLY MORNING AND EUPHORIA');
-            setTimeout(loadScr2, 300);
-            setTimeout(loadScr, 100, 'js/script(EARLY).js');
             break;
     }
 });
+
