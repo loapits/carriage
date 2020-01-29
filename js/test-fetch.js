@@ -5,7 +5,7 @@ let link = document.querySelectorAll('.link');
 for(let i = 0; i < link.length; i++){
     link[i].onclick = (e) => { 
         e.preventDefault();
-        alert(2342);
+        // alert(2342);
     };
 };
 
@@ -18,7 +18,7 @@ function loadPage(url) {
         let parseText =  parser.parseFromString(text, 'text/html');
         let main = parseText.querySelector('main');
         document.querySelector('main').innerHTML = main.innerHTML; 
-        alert('page');   
+        // alert('page');   
     });       
 };
 
@@ -27,7 +27,7 @@ function loadPlaylist(urls){
     src1.src = urls;
     src1.type="text/javascript"; 
     document.getElementsByTagName("main")[0].appendChild(src1); 
-    alert('playlist');
+    // alert('playlist');
 }
 
 function loadPlayer() {
@@ -35,7 +35,7 @@ function loadPlayer() {
     src2.src = 'js/script.js';
     src2.type="text/javascript";
     document.getElementsByTagName("main")[0].appendChild(src2);
-    alert('player');
+    // alert('player');
 }
 
 
