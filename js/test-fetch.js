@@ -9,30 +9,6 @@ for(let i = 0; i < link.length; i++){
     };
 };
 
-function loadPlaylist(urls){    
-    let src1 = document.createElement("script");
-    src1.src = urls;
-    src1.type="text/javascript";
-    document.getElementsByTagName("main")[0].appendChild(src1); 
-    alert('playlist');
-}
-
-function loadPlayer() {
-    let src2 = document.createElement("script");
-    src2.src = 'js/script.js';
-    src2.type="text/javascript";
-    document.getElementsByTagName("main")[0].appendChild(src2);
-    alert('player');
-}
-
-function loadFetch() {
-    let src2 = document.createElement("script");
-    src2.src = 'js/test-fetch.js';
-    src2.type="text/javascript";
-    document.getElementsByTagName("main")[0].appendChild(src2);
-    alert('fetch');
-}
-
 function loadPage(url) {
     return fetch(url).then(response => {
         return response.text();
@@ -45,10 +21,28 @@ function loadPage(url) {
         alert('page');   
     });       
 };
-function loadAllScr(url, urls) {
+
+function loadPlaylist(urls){    
+    let src1 = document.createElement("script");
+    src1.src = urls;
+    src1.type="text/javascript"; 
+    document.getElementsByTagName("main")[0].appendChild(src1); 
+    alert('playlist');
+}
+
+function loadPlayer() {
+    let src2 = document.createElement("script");
+    src2.src = 'js/script.js';
+    src2.type="text/javascript";
+    document.getElementsByTagName("main")[0].appendChild(src2);
+    alert('player');
+}
+
+
+async function loadAllScr(url, urls) {
+    setTimeout(loadPage, 100, url);
     setTimeout(loadPlaylist, 200, urls);
     setTimeout(loadPlayer, 300);
-    setTimeout(loadPage, 100, url);
 }
 function changeURL (url, title){
     history.pushState({}, 'Carriage', url);
