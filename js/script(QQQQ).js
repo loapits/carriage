@@ -1,3 +1,4 @@
+'use-strict';
 songe = [
 	muz_one = [0, 'Carriage - contrasting dark red', 'media/QQQQ/contrasting_dark_red.mp3','113', 'img/covers/QQQQ.jpg'],
 	muz_two = [1, 'Carriage - BROKEN DISPLAYS', 'media/QQQQ/BROKEN_DISPLAYS.mp3','156', 'img/covers/QQQQ.jpg'],

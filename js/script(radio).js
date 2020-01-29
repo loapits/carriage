@@ -1,3 +1,4 @@
+'use-strict';
 songe = [
 	muz_1 = [0, 'архитектура - wet wheat bakery', 'media/radio/wet_wheat_bakery.mp3','175.5', 'img/covers/wet wheat bakery.jpg'],
 	muz_2 = [1, 'архитектура - colours', 'media/radio/colours.mp3','128.5', 'img/covers/colours.jpg'],

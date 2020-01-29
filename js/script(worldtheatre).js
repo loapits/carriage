@@ -1,3 +1,4 @@
+'use-strict';
 songe = [
 	muz_one = [0, 'Carriage - депрессивная музыка для модных', 'media/AllWorld/Carriage-depressive_music_for_fashion.mp3','94', 'img/covers/allworld.png'],
 	muz_two = [1, 'Carriage - Старайся не болеть, пожалуйста', 'media/AllWorld/Carriage-Try_not_to_get_sick_please.mp3','210.3', 'img/covers/allworld.png'],

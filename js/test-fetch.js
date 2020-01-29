@@ -1,11 +1,11 @@
 'use strict';
-/* попробовать повторно инициализировать скрипты*/ 
-let headEl = document.querySelector('body');
+let headEl = document.querySelector('html');
 
 let link = document.querySelectorAll('.link');
 for(let i = 0; i < link.length; i++){
     link[i].onclick = (e) => { 
         e.preventDefault();
+        alert(2342);
     };
 };
 
@@ -14,7 +14,7 @@ function loadPlaylist(urls){
     src1.src = urls;
     src1.type="text/javascript";
     document.getElementsByTagName("main")[0].appendChild(src1); 
-    console.log('playlist');
+    alert('playlist');
 }
 
 function loadPlayer() {
@@ -22,7 +22,7 @@ function loadPlayer() {
     src2.src = 'js/script.js';
     src2.type="text/javascript";
     document.getElementsByTagName("main")[0].appendChild(src2);
-    console.log('player');
+    alert('player');
 }
 
 function loadFetch() {
@@ -30,7 +30,7 @@ function loadFetch() {
     src2.src = 'js/test-fetch.js';
     src2.type="text/javascript";
     document.getElementsByTagName("main")[0].appendChild(src2);
-    console.log('fetch');
+    alert('fetch');
 }
 
 function loadPage(url) {
@@ -42,7 +42,7 @@ function loadPage(url) {
         let parseText =  parser.parseFromString(text, 'text/html');
         let main = parseText.querySelector('main');
         document.querySelector('main').innerHTML = main.innerHTML; 
-        console.log('page');   
+        alert('page');   
     });       
 };
 function loadAllScr(url, urls) {

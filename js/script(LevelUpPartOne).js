@@ -1,3 +1,4 @@
+'use-strict';
 songe = [
 	muz_one = [0, 'Carriage - Интродакшн', 'media/LVLUP/Introducthion.mp3','141', 'img/covers/LEVELUP.png'],
 	muz_two = [1, 'Carriage - Второй Трек На Альбоме', 'media/LVLUP/Second_track_for_album.mp3','252.5', 'img/covers/LEVELUP.png'],

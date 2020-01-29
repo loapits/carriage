@@ -1,3 +1,4 @@
+'use-strict';
 songe = [
 	muz_one = [0, 'Carriage - ENTRY DETAILS', 'media/EARLY-MORNING-AND-EUPHORIA/ENTRY_DETAILS.mp3','210', 'img/albums/EARLY.jpg'],
 	muz_two = [1, 'Carriage - MY WEDDING, MY MARRIAGE', 'media/EARLY-MORNING-AND-EUPHORIA/MY_WEDDING_MY_MARRIAGE.mp3','182.8', 'img/albums/EARLY.jpg'],
