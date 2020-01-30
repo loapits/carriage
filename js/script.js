@@ -153,8 +153,6 @@
 
 		$('.prevbtn').on('click', function() {
 			let id = $(this).attr('data-id');
-			localStorage.setItem('song', JSON.stringify(songs[id]));
-			localStorage.setItem('songs', JSON.stringify(songs));
 			if (id != -1) {
 				$('.play-pause_song').css({'background':'url(img/icons/player/playbutton.png) no-repeat center top/cover'});
 				playPauseSong(id);
@@ -196,17 +194,28 @@
 	      	$('.setTime').hide();
 	      })
 	  	}
-		});	
-
-		$('.song, .play, .pause, .prevbtn, .nextbtn').on('click', function() {
-			window.addEventListener('storage', function(e){
-				if(Song.play) {
-					// Проверить storage, если не пустое, то загрузить предыдущий в сонгПрев, и поставить на паузу
-					Song.pause();
-					$('.play').css({'background':'url(img/icons/player/play.png) no-repeat center top/cover'});
-					$('.play-pause_song').css({'background':'url(img/icons/player/playbutton.png) no-repeat center top/cover'});	
-				}
+		});
+		/* function stipong() {
+			$('.song, .play, .pause, .prevbtn, .nextbtn').on('click', function() {
+					for (let key in localStorage) {
+						if (localStorage.getItem(key)!= null) {
+							Song.pause();
+							alert(localStorage.getItem(Song));
+							console.log('Отмениолось');
+							console.log(songe);
+						}
+					}
 			})
-		})
+		}
+ */
+		/* $('.song, .play, .pause, .prevbtn, .nextbtn').on('click', function() {
+			window.addEventListener('storage', function(e){
+						Song.play();
+						$('.play').css({'background':'url(img/icons/player/play.png) no-repeat center top/cover'});
+						$('.play-pause_song').css({'background':'url(img/icons/player/playbutton.png) no-repeat center top/cover'});	
+						console.log('Песня на паузе');
+			
+			})
+		}) */
 	})
 })(jQuery)

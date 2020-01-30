@@ -18,6 +18,16 @@ function loadPage(url) {
   })
 };
 
+function removEl(elId) {
+  let el = document.getElementById(elId);
+  if (el) {
+    el.remove();
+    console.log(`Элемент ${elId} удален`);
+  } else {
+    console.log('Элемент отсутствует');
+  }
+}
+
 function loadPlaylist(urls) {
   let src1 = document.createElement("script");
   src1.src = urls;
@@ -34,6 +44,8 @@ async function loadAllScr(url, urls) {
   setTimeout(loadPage, 100, url);
   setTimeout(loadPlaylist, 200, urls);
   setTimeout(loadPlayer, 300);
+  setTimeout(removEl, 400, 'playlist');
+  setTimeout(removEl, 400, 'player');
 }
 
 function changeURL(url, title) {
@@ -44,10 +56,6 @@ function changeURL(url, title) {
 document.querySelector('body').addEventListener('click', event => {
   switch (event.target.id) {
     case 'logo':
-      loadAllScr('index.html');
-      changeURL('index.html', 'Albums');
-      break;
-
     case 'albums':
       loadAllScr('index.html');
       changeURL('index.html', 'Albums');
