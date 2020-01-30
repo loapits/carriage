@@ -15,7 +15,7 @@ function loadPage(url) {
     let parseText =  parser.parseFromString(text, 'text/html');
     let main = parseText.querySelector('main');
     document.querySelector('main').innerHTML = main.innerHTML;
-  });
+  })
 };
 
 function loadPlaylist(urls) {
@@ -90,5 +90,4 @@ document.querySelector('body').addEventListener('click', event => {
       changeURL('early-morning-and-euphoria.html', 'EARLY MORNING AND EUPHORIA');
       break;
   }
-});
-
+})

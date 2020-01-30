@@ -5,7 +5,7 @@
 		volume = 1, 
 		songs = songe;
 		
-		for (i=0; i<songs.length; i++) {
+		for (i = 0; i < songs.length; i++) {
 			$('.wrp').append('<div class="song" id="'+songs[i][0]+'"><div class="songH"></div><button class="play-pause_song"></button><div class="nameSong">'+songs[i][1]+'</div><div class="time">'+parseInt(songs[i][3]/60)+':'+parseInt(songs[i][3]%60)+'</div></div>');
 		};
 
