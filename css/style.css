@@ -82,6 +82,11 @@ header{
   border-bottom: 2px solid #999;
   background-color: transparent;
 }
+.bord:active{
+  padding-bottom: 6px;
+  border-bottom: 2px solid #999;
+  background-color: transparent;
+}
 /* Images */
 .image{
   display: inline-flex;
@@ -90,12 +95,12 @@ header{
   height: 35px;
 }
 .image:hover{
-  transition: all 0.9s ease;
-  transform: rotate(720deg);
+  transition: all 0.5s ease;
+  transform: rotate(360deg);
 }
 .image:focus{
-  transition: all 0.9s ease;
-  transform: rotate(720deg);
+  transition: all 0.5s ease;
+  transform: rotate(360deg);
   outline: none;
 }
 .radio{
@@ -128,7 +133,7 @@ header{
   font-size: 15px;
 }
 /* Main */
-main {
+main{
   display: flex;
   width: 100%;
   padding-top: 10px;
@@ -196,7 +201,7 @@ main {
   background: url(../img/albums/EARLY.jpg) no-repeat center top/cover;
 }
 /* Updates and about author */
-.head-info {
+.head-info{
   font-family: Open Sans, sans-serif;
   width: 80%;
   height: 430px;
