@@ -161,7 +161,7 @@ main {
   text-shadow: #fc3 2px 2px 2px;
   font-weight: bold;
 }
-.albums-list a{
+.albums-list button{
   display: inline-flex;
   flex-wrap: wrap;
   width: 250px;
@@ -170,15 +170,15 @@ main {
   outline: none;
   border: none;
 }
-.albums-list a:hover{
+.albums-list button:hover{
   cursor: pointer;
   box-shadow: 0 0 20px rgba(0, 0, 0, 1);
 }
-.albums-list a:focus{
+.albums-list button:focus{
   cursor: pointer;
   box-shadow: 0 0 20px rgba(0, 0, 0, 1);
 }
-.albums-list a:active{
+.albums-list button:active{
   transform: translateY(1px);
   filter: saturate(150%);
 }

@@ -1,12 +1,10 @@
 'use strict';
-let headEl = document.querySelector('html');
-
 let link = document.querySelectorAll('.link');
 for(let i = 0; i < link.length; i++){
-    link[i].onclick = (e) => { 
-        e.preventDefault();
+    link[i].addEventListener('click', function(event) { 
+        event.preventDefault()
         // alert(2342);
-    };
+    })
 };
 
 function loadPage(url) {
@@ -37,19 +35,18 @@ function loadPlayer() {
     document.getElementsByTagName("main")[0].appendChild(src2);
     // alert('player');
 }
-
-
 async function loadAllScr(url, urls) {
     setTimeout(loadPage, 100, url);
     setTimeout(loadPlaylist, 200, urls);
     setTimeout(loadPlayer, 300);
+
 }
 function changeURL (url, title){
     history.pushState({}, 'Carriage', url);
     document.getElementsByTagName('title')[0].innerHTML = title;
 };
 
-headEl.addEventListener('click', event => {
+document.querySelector('body').addEventListener('click', event => {
     switch(event.target.id){
         case 'logo':
             loadAllScr('index.html');
