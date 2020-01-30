@@ -21,14 +21,12 @@ function loadPage(url) {
 function loadPlaylist(urls) {
   let src1 = document.createElement("script");
   src1.src = urls;
-  src1.type="text/javascript";
   document.getElementsByTagName("main")[0].appendChild(src1);
 }
 
 function loadPlayer() {
   let src2 = document.createElement("script");
   src2.src = 'js/script.js';
-  src2.type="text/javascript";
   document.getElementsByTagName("main")[0].appendChild(src2);
 }
 
