@@ -198,7 +198,7 @@
 		/* function stipong() {
 			$('.song, .play, .pause, .prevbtn, .nextbtn').on('click', function() {
 					for (let key in localStorage) {
-						if (localStorage.getItem(key)!= null) {
+						if (localStorage != '') {
 							Song.pause();
 							alert(localStorage.getItem(Song));
 							console.log('Отмениолось');
@@ -206,8 +206,8 @@
 						}
 					}
 			})
-		}
- */
+		} */
+
 		/* $('.song, .play, .pause, .prevbtn, .nextbtn').on('click', function() {
 			window.addEventListener('storage', function(e){
 						Song.play();
