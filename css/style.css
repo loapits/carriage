@@ -6,7 +6,7 @@ body{
   width: 1366px;
   margin: auto;
 }
-button:active {
+button:active, li:active{
   transform: translateY(1px);
   filter: saturate(150%);
 }
@@ -64,13 +64,6 @@ header{
 }
 .head-navigation a:hover{
   cursor: pointer;
-}
-.head-navigation a:hover{
-  cursor: pointer;
-}
-.link a:active{
-  transform: translateY(1px);
-  filter: saturate(150%);
 }
 .bord:hover{
   padding-bottom: 6px;
