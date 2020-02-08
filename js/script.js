@@ -10,7 +10,8 @@
 		};
 
 		function playNewSong(id) {
-			let curtime, cur = -100;
+			let curtime,
+			cur = -100;
 			$('.audio .nameSong_name').text(songs[id][1]);
 			$('title').text(songs[id][1]);
 			$('.play').attr('id', id);
@@ -30,7 +31,7 @@
 				$('.time_play').text(parseInt( curtime/60 )+':'+parseInt(curtime%60));
 				$('.progress').css({'left':cur+'%'});
 			});
-			
+
 			Song.addEventListener('load', () => {
 				let load = Song.buffered.start(0);
 				load = -((songs[id_song][3]-load)*100)/songs[id_song][3];
@@ -48,7 +49,14 @@
 				};
 				Song.play();
 				return playNewSong(id);
-			})
+			});
+			if (Song.play) {
+				if (localStorage.getItem('song') !== localStorage.getItem('song')) {
+					setTimeout( () => {
+						Song.pause();
+					}, 2000)
+				}
+			}
 		}		
 		
 		function playPauseSong(id) {
@@ -78,52 +86,27 @@
 		function retrySong(id) {
 			if(Song) {
 				if(Song.play) {
-					Song.loop = true;
-					Song.addEventListener('ended', () => {
-	  					Song.currentTime = 0;
-	  					Song.play();
-					}, false)
-				}
-			}
-		}
-
-		/* function notRetrySong(id) {
-			if(Song) {
-				if(Song.play) {
-					Song.loop = false;
-					Song.addEventListener('ended', () => {
-  					Song.currentTime = 0;
-  					Song.play();
-					}, false)
-				}
-			}
-		} */
-
-		/* function randomSong(id) {
-			if (Song) {
-				if (Song.play) {
+					if (Song.loop == false){
+						Song.loop = true;
 						Song.addEventListener('ended', () => {
-	  					Song = new Audio(songs[randomInteger(0, 12)][2]);
+		  					Song.currentTime = 0;
+		  					Song.play();
 						}, false)
+					} else {
+						Song.loop = false;
+						$('.repeat').css({'background':'url(../img/icons/player/repeat.png) no-repeat center top/cover'})
 					}
 				}
-		}; */
+			}
+		};
 
 		$('.repeat').on('click', function() {
 			let id = $(this).attr('data-id');
 			if (id == -1) {
-			  $('.repeating').addClass('repeat-1');
-			 	retrySong(id);
+				$('.repeat').css({'background':'url(../img/icons/player/repeat_one.png) no-repeat center top/cover'})
+				retrySong(id);
 			}
 		});
-
-		/* $('.shuffle').on('click', function() {
-			let id = $(this).attr('data-id');
-			if (id == -1) {
-				$('.shuffle').css({'background':'url(img/icons/player/shuffle.png) no-repeat center top/cover'});
-				shuffleSong(id);
-			}
-		}); */
 
 		$('.song, .play, .pause').on('click',function() {
 			let id = $(this).attr('id');
@@ -195,27 +178,14 @@
 	      })
 	  	}
 		});
-		/* function stipong() {
-			$('.song, .play, .pause, .prevbtn, .nextbtn').on('click', function() {
-					for (let key in localStorage) {
-						if (localStorage != '') {
-							Song.pause();
-							alert(localStorage.getItem(Song));
-							console.log('Отмениолось');
-							console.log(songe);
-						}
-					}
-			})
-		} */
-
-		/* $('.song, .play, .pause, .prevbtn, .nextbtn').on('click', function() {
+		
+		$('.song, .play, .pause, .prevbtn, .nextbtn').on('click', function() {
 			window.addEventListener('storage', function(e){
-						Song.play();
-						$('.play').css({'background':'url(img/icons/player/play.png) no-repeat center top/cover'});
-						$('.play-pause_song').css({'background':'url(img/icons/player/playbutton.png) no-repeat center top/cover'});	
-						console.log('Песня на паузе');
-			
+				Song.pause();
+				$('.play').css({'background':'url(img/icons/player/play.png) no-repeat center top/cover'});
+				$('.play-pause_song').css({'background':'url(img/icons/player/playbutton.png) no-repeat center top/cover'});	
+				console.log('Песня на паузе');
 			})
-		}) */
+		})
 	})
-})(jQuery)
+})(jQuery);

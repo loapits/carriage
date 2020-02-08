@@ -8,6 +8,8 @@
 	<!-- <base href="https://carr1ageee.000webhostapp.com/"> -->
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" media="only screen and (color)" href="css/queries-desktop.css">
+	<link rel="stylesheet" media="only screen and (color)" href="css/queries-mobile.css">
 	<link rel="icon" href="img/icons/favicon.png">
 	<title>Updates</title>
 </head>
@@ -18,11 +20,16 @@
 			<a href="index.html" id="logo" class="head-logo link">
 				<img src="img/icons/icon.png" id="logo" alt="Carriage">
 			</a>
+			<a href="index.html" id="logo" class="head-logo-two link">
+				<img src="img/icons/favicon.png" id="logo" alt="Carriage">
+			</a>
 			<nav class="navigation">
+				<button class="navigation-button"></button>
+				<button class="navigation-button-two"></button>
 				<ul class="head-navigation">
-					<li><a href="index.html" id="albums" class="bord link">albums</a></li>
-					<li><a href="updates.html" id="updatesHead" class="bord link">updates</a></li>
-					<li><a href="about_author.html" id="aboutMe" class="bord link">about me</a></li>
+					<li><a href="index.html" id="albums" class="link-line link">albums</a></li>
+					<li><a href="updates.html" id="updatesHead" class="link-line link">updates</a></li>
+					<li><a href="about_author.html" id="aboutMe" class="link-line link">about me</a></li>
 					<li><a href="radio.html" id="radio" class="radio link image"></a></li>
 				</ul>
 				<ul class="social">
@@ -37,6 +44,7 @@
 					<li><a href="https://qiwi.com/p/79506252527" class="image qiwi"></a></li>
 				</ul>
 			</nav>
+			<h1 class="header-title">Carriage</h1>
 			<h1 class="hi">привет</h1>
 		</div>
 	</header>
@@ -49,8 +57,8 @@
 						<h3>22.02.20</h3>
 						<p>𝐂𝐀𝐑𝐑𝐈𝐀𝐆𝐄 — «𝐄𝐀𝐑𝐋𝐘 𝐌𝐎𝐑𝐍𝐈𝐍𝐆 𝐀𝐍𝐃 𝐄𝐔𝐏𝐇𝐎𝐑𝐈𝐀» [𝐚𝐥𝐛𝐮𝐦]<br>
 							ＩＮＳＴＲＵＭＥＮＴＡＬ</p>
-							<a href="https://soundcloud.com/carriageuknow/sets/early-morning-and-euphoria">Слушать</a>
-					</article>
+						<a href="https://soundcloud.com/carriageuknow/sets/early-morning-and-euphoria">Слушать</a>
+						</article>
 					<article class="news">
 						<h3>11.12.19</h3>
 						<p>1400 прослушиваний на альбомчике♡. Несмотря на это, какое-то всё равно припизднутое настроение сейчас.
@@ -108,6 +116,7 @@
 			<button class="play bottom-buttons" id="play" data-id="-1"></button>
 			<button class="nextbtn bottom-buttons" id="next" data-id="-1"></button>
 			<button class="repeating repeat bottom-buttons" data-id="-1"></button>
+			<button class="volume-buttton bottom-buttons" id="volu" data-id="-1"></button>
 			<!-- <button class="shuffle bottom-buttons" id="shuffle" data-id="-1"></button> -->
 			<div class="volume">
 				<input type="range" min="0" max="100" value="100" id="myRange" class="volume-input">
@@ -129,6 +138,8 @@
 	<script src="js/jquery-3.4.1.min.js"></script>
 	<script src="js/script.js"></script>
 	<script src="js/value.js"></script>
+	<script src="js/mobile-menu.js"></script>
+	<script src="js/volume.js"></script>
 </body>
 
 </html>

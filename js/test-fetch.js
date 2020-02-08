@@ -1,8 +1,11 @@
 'use strict';
-let link = document.querySelectorAll('.link');
+let body = document.querySelector('body'),
+    a = document.querySelector('main'),
+    link = document.querySelectorAll('.link');
+
 for (let i = 0; i < link.length; i++) {
-  link[i].addEventListener('click', event => {
-    event.preventDefault();
+  link[i].addEventListener('click', e => {
+    e.preventDefault();
   })
 };
 
@@ -11,10 +14,19 @@ function loadPage(url) {
     return response.text();
   })
   .then( text => {
-    let parser = new DOMParser();
-    let parseText =  parser.parseFromString(text, 'text/html');
-    let main = parseText.querySelector('main');
+    let parser = new DOMParser(),
+    parseText =  parser.parseFromString(text, 'text/html'),
+    main = parseText.querySelector('main');
     document.querySelector('main').innerHTML = main.innerHTML;
+    return main;
+  })
+  .then(() => {
+    setTimeout(() => {
+      let src2 = document.createElement("script");
+      src2.src = 'js/script.js';
+      document.getElementsByTagName("main")[0].appendChild(src2);
+    }, 200);
+    return main;
   })
 };
 
@@ -24,8 +36,8 @@ function removEl(elId) {
     el.remove();
     console.log(`Элемент ${elId} удален`);
   } else {
-    console.log('Элемент отсутствует');
-  }
+    console.log(`Элемент ${elId} отсутствует`);
+  } 
 }
 
 function loadPlaylist(urls) {
@@ -34,26 +46,27 @@ function loadPlaylist(urls) {
   document.getElementsByTagName("main")[0].appendChild(src1);
 }
 
-function loadPlayer() {
+/* function loadPlayer() {
   let src2 = document.createElement("script");
   src2.src = 'js/script.js';
   document.getElementsByTagName("main")[0].appendChild(src2);
-}
+} */
 
-async function loadAllScr(url, urls) {
+function loadAllScr(url, urls) {
   setTimeout(loadPage, 100, url);
   setTimeout(loadPlaylist, 200, urls);
-  setTimeout(loadPlayer, 300);
+  /* setTimeout(loadPlayer, 300); */
   setTimeout(removEl, 400, 'playlist');
   setTimeout(removEl, 400, 'player');
-}
+};
+
 
 function changeURL(url, title) {
   history.pushState({}, 'Carriage', url);
   document.getElementsByTagName('title')[0].innerHTML = title;
 };
 
-document.querySelector('body').addEventListener('click', event => {
+document.addEventListener('click', event => {
   switch (event.target.id) {
     case 'logo':
     case 'albums':
@@ -75,7 +88,12 @@ document.querySelector('body').addEventListener('click', event => {
       loadAllScr('radio.html', 'js/script(radio).js');
       changeURL('radio.html', 'Radio');
       break;
-        
+  }
+});
+
+
+document.addEventListener('click', event => {
+  switch (event.target.id) {
     case 'QQQQ':
       loadAllScr('questions_questions_questions_questions.html', 'js/script(QQQQ).js');
       changeURL('questions_questions_questions_questions.html', 'QQQQ');
@@ -96,4 +114,4 @@ document.querySelector('body').addEventListener('click', event => {
       changeURL('early-morning-and-euphoria.html', 'EARLY MORNING AND EUPHORIA');
       break;
   }
-})
+});
