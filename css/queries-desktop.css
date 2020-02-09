@@ -2428,7 +2428,7 @@
   }
   /* About author */
   .about-author{
-    margin-top: 50px;
+    margin-top: 40px;
     padding: 0 10px;
     height: 385px;
     overflow-y: scroll;
@@ -2452,7 +2452,7 @@
   }
   .about-author p{
     font-size: 13px;
-    line-height: 2;
+    line-height: 1.8;
     margin: 5px 0 5px 0;
   }
   .about-author a{
