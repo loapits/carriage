@@ -20,14 +20,6 @@ function loadPage(url) {
     document.querySelector('main').innerHTML = main.innerHTML;
     return main;
   })
-  .then(() => {
-    setTimeout(() => {
-      let src2 = document.createElement("script");
-      src2.src = 'js/script.js';
-      document.getElementsByTagName("main")[0].appendChild(src2);
-    }, 200);
-    return main;
-  })
 };
 
 function removEl(elId) {
@@ -40,30 +32,28 @@ function removEl(elId) {
   } 
 }
 
+function loadPlayer() {
+  let src2 = document.createElement("script");
+  src2.src = 'js/script.js';
+  document.getElementsByTagName("main")[0].appendChild(src2);
+}
 function loadPlaylist(urls) {
   let src1 = document.createElement("script");
   src1.src = urls;
   document.getElementsByTagName("main")[0].appendChild(src1);
 }
 
-/* function loadPlayer() {
-  let src2 = document.createElement("script");
-  src2.src = 'js/script.js';
-  document.getElementsByTagName("main")[0].appendChild(src2);
-} */
-
-function loadAllScr(url, urls) {
-  setTimeout(loadPage, 100, url);
-  setTimeout(loadPlaylist, 200, urls);
-  /* setTimeout(loadPlayer, 300); */
-  setTimeout(removEl, 400, 'playlist');
-  setTimeout(removEl, 400, 'player');
-};
-
-
 function changeURL(url, title) {
   history.pushState({}, 'Carriage', url);
   document.getElementsByTagName('title')[0].innerHTML = title;
+};
+
+async function loadAllScr(url, urls) {
+  await loadPlaylist(urls);
+  await loadPage( url);
+  await loadPlayer()
+  await removEl('playlist');
+  await removEl('player');
 };
 
 document.addEventListener('click', event => {
