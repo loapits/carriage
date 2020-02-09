@@ -46,5 +46,5 @@ songe = [
 	muz_44 = [43, 'Carriage - SALAD', 'media/EARLY-MORNING-AND-EUPHORIA/SALAD.mp3','134.5', 'img/covers/salad.jpg'],
 	muz_45 = [44, 'Carriage - I-DOEUN (?)', 'media/EARLY-MORNING-AND-EUPHORIA/I-DOEUN.mp3','142', 'img/albums/EARLY.jpg'],
 	muz_46 = [45, 'Carriage - "a medicinal herb"', 'media/EARLY-MORNING-AND-EUPHORIA/a_medicinal_herb.mp3','143', 'img/covers/a-medicinal-herb.jpg'],
-	muz_47 = [46, 'Carriage - я уже даже привык к тому что ничего не меняется', 'media/radio/i_am_already_used_to_the_fact_that_nothing_changes.mp3','143', 'img/covers/i-am.png'],
+	muz_47 = [46, 'Carriage - я уже даже привык к тому что ничего не меняется', 'media/radio/i_am_already_used_to_the_fact_that_nothing_changes.mp3','179', 'img/covers/i-am.png'],
 ];

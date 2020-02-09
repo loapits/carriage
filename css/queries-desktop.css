@@ -338,12 +338,22 @@
     float: left;
   }
   .nameSong_name{
-    font-size: 19px;
+    font-size: 22px;
     position: relative;
-    top: 19px;
-    left: 3%;
-    width: 50%;
+    top: 17px;
+    left: 2%;
     color: #000;
+    overflow: visible;
+    white-space: nowrap;
+  }
+  .cont{
+    overflow: hidden;
+    width: 60%;
+    margin-left: 20px;
+  }
+  @keyframes scroll {
+    0% {transform: translate(500%,0);}
+    100% {transform: translate(-750%,0);}
   }
   .volume{
     display: none;
@@ -811,8 +821,18 @@
     position: relative;
     top: 19px;
     left: 3%;
-    width: 50%;
     color: #000;
+    overflow: visible;
+    white-space: nowrap;
+  }
+  .cont{
+    overflow: hidden;
+    width: 60%;
+    margin-left: 20px;
+  }
+  @keyframes scroll {
+    0% {transform: translate(500%,0);}
+    100% {transform: translate(-750%,0);}
   }
   .volume{
     display: none;
@@ -1268,8 +1288,18 @@
     position: relative;
     top: 14px;
     left: 3%;
-    width: 50%;
     color: #000;
+    overflow: visible;
+    white-space: nowrap;
+  }
+  .cont{
+    overflow: hidden;
+    width: 60%;
+    margin-left: 20px;
+  }
+  @keyframes scroll {
+    0% {transform: translate(500%,0);}
+    100% {transform: translate(-750%,0);}
   }
   .volume{
     display: none;
@@ -1715,8 +1745,18 @@
     position: relative;
     top: 16px;
     left: 3%;
-    width: 50%;
     color: #000;
+    overflow: visible;
+    white-space: nowrap;
+  }
+  .cont{
+    overflow: hidden;
+    width: 60%;
+    margin-left: 20px;
+  }
+  @keyframes scroll {
+    0% {transform: translate(500%,0);}
+    100% {transform: translate(-750%,0);}
   }
   .volume{
     display: none;
@@ -2144,9 +2184,19 @@
     font-size: 13px;
     position: relative;
     top: 15px;
-    left: 3%;
-    width: 50%;
+    left: 2%;
     color: #000;
+    overflow: visible;
+    white-space: nowrap;
+  }
+  .cont{
+    overflow: hidden;
+    width: 60%;
+    margin-left: 20px;
+  }
+  @keyframes scroll {
+    0% {transform: translate(500%,0);}
+    100% {transform: translate(-750%,0);}
   }
   .volume{
     display: none;
@@ -2538,8 +2588,18 @@
     position: relative;
     top: 12px;
     left: 3%;
-    width: 50%;
     color: #000;
+    overflow: visible;
+    white-space: nowrap;
+  }
+  .cont{
+    overflow: hidden;
+    width: 60%;
+    margin-left: 20px;
+  }
+  @keyframes scroll {
+    0% {transform: translate(500%,0);}
+    100% {transform: translate(-750%,0);}
   }
   .volume{
     display: none;
@@ -2924,8 +2984,18 @@
     position: relative;
     top: 12px;
     left: 3%;
-    width: 50%;
     color: #000;
+    overflow: visible;
+    white-space: nowrap;
+  }
+  .cont{
+    overflow: hidden;
+    width: 60%;
+    margin-left: 20px;
+  }
+  @keyframes scroll {
+    0% {transform: translate(500%,0);}
+    100% {transform: translate(-750%,0);}
   }
   .volume{
     display: none;

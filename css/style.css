@@ -400,7 +400,7 @@ main{
   position: absolute;
   overflow: hidden;
   white-space: nowrap; 
-  margin-top: 6px;
+  margin-top: 8px;
   margin-left: 6%;
   width: 77%;
   height: 100%;
@@ -466,14 +466,22 @@ footer{
   margin-left: 6px;
 }
 .nameSong_name{
-  font-size: 13px;
+  font-size: 15px;
   position: relative;
-  top: 15px;
-  left: 3%;
-  width: 50%;
+  top: 14px;
+  left: 2%;
   color: #000;
+  overflow: visible;
+  white-space: nowrap;
+}
+.cont{
   overflow: hidden;
-  white-space: nowrap; 
+  width: 57%;
+  margin-left: 20px;
+}
+@keyframes scroll {
+  0% {transform: translate(500%,0);}
+  100% {transform: translate(-750%,0);}
 }
 .volume{
   display: none;
