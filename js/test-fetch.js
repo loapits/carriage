@@ -68,7 +68,8 @@ function changeURL(url, title) {
 
 document.addEventListener('click', event => {
   switch (event.target.id) {
-    case 'logo':
+    case 'logo-img':
+    case 'logo-two-img':
     case 'albums':
       loadAllScr('index.html');
       changeURL('index.html', 'Albums');
