@@ -20,7 +20,7 @@ function loadPage(url) {
     document.querySelector('main').innerHTML = main.innerHTML;
     return main;
   })
-};
+}
 
 function removEl(elId) {
   let el = document.getElementById(elId);
@@ -37,6 +37,7 @@ function loadPlayer() {
   src2.src = 'js/script.js';
   document.getElementsByTagName("main")[0].appendChild(src2);
 }
+
 function loadPlaylist(urls) {
   let src1 = document.createElement("script");
   src1.src = urls;
@@ -46,7 +47,7 @@ function loadPlaylist(urls) {
 function changeURL(url, title) {
   history.pushState({}, 'Carriage', url);
   document.getElementsByTagName('title')[0].innerHTML = title;
-};
+}
 
 async function loadAllScr(url, urls) {
   await loadPlaylist(urls);
@@ -81,7 +82,6 @@ document.addEventListener('click', event => {
       break;
   }
 });
-
 
 document.addEventListener('click', event => {
   switch (event.target.id) {

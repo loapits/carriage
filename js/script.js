@@ -50,13 +50,6 @@
 				Song.play();
 				return playNewSong(id);
 			});
-			if (Song.play) {
-				if (localStorage.getItem('song') !== localStorage.getItem('song')) {
-					setTimeout( () => {
-						Song.pause();
-					}, 2000)
-				}
-			}
 		}		
 		
 		function playPauseSong(id) {
@@ -70,33 +63,26 @@
 					} else {
 						Song.pause();
 						$('.play').css({'background':'url(img/icons/player/play.png) no-repeat center top/cover'});
-						$('.song#'+id+' .play-pause_song').css({'background':'url(img/icons/player/playbutton.png) no-repeat center top/cover'});
+						$('.song#'+id+' .song').css({'background':'url(img/icons/player/playbutton.png) no-repeat center top/cover'});
 					}
 				}	else {
 					Song.pause();
 					$('.play-pause_song').css({'background':'url(img/icons/player/playbutton.png) no-repeat center top/cover'});
 					$('.song#'+id+' .play-pause_song').css({'background':'url(img/icons/player/pausebutton.png) no-repeat center top/cover'});
 					playNewSong(id);
+					retrySong();
 				}
 			} else {
-				playNewSong(id);
+				return playNewSong(id);
 			}
 		}
 
-		function retrySong(id) {
-			if(Song) {
-				if(Song.play) {
-					if (Song.loop == false){
-						Song.loop = true;
-						Song.addEventListener('ended', () => {
-		  					Song.currentTime = 0;
-		  					Song.play();
-						}, false)
-					} else {
-						Song.loop = false;
-						$('.repeat').css({'background':'url(../img/icons/player/repeat.png) no-repeat center top/cover'})
-					}
-				}
+		function retrySong() {
+			if (Song.loop == false){
+				Song.loop = true;
+			} else {
+				Song.loop = false;
+				$('.repeat').css({'background':'url(../img/icons/player/repeat.png) no-repeat center top/cover'})
 			}
 		};
 
@@ -179,12 +165,15 @@
 	  	}
 		});
 		
-		$('.song, .play, .pause, .prevbtn, .nextbtn').on('click', function() {
-			window.addEventListener('storage', function(e){
-				Song.pause();
-				$('.play').css({'background':'url(img/icons/player/play.png) no-repeat center top/cover'});
-				$('.play-pause_song').css({'background':'url(img/icons/player/playbutton.png) no-repeat center top/cover'});	
-				console.log('Песня на паузе');
+		$('.song, .play, .pause, .prevbtn, .nextbtn').on('click', function() {		
+			window.addEventListener('storage', function(){
+				setTimeout(() => {
+					Song.pause();
+					$('.play').css({'background':'url(img/icons/player/play.png) no-repeat center top/cover'});
+					$('.play-pause_song').css({'background':'url(img/icons/player/playbutton.png) no-repeat center top/cover'});	
+					console.log('Песня на паузе');
+					return playNewSong(id);
+				}, 500);
 			})
 		})
 	})
