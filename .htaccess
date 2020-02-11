@@ -1,4 +1,8 @@
-
-# HTID:12146879: DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES BELOW
-php_value display_errors 1
-# DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES ABOVE HTID:12146879:
+RewriteEngine on
+RewriteBase /
+RewriteCond %{THE_REQUEST} ^{3,9}\ /(<^.>+)\.html\ HTTP
+RewriteRule ^(<^.>+)\.html$ http://127.0.0.1:5500/$1 
+RewriteCond %{REQUEST_URI} !(\.<^./>+)$
+RewriteCond %{REQUEST_fileNAME} !-d
+RewriteCond %{REQUEST_fileNAME} !-f
+RewriteRule (.*) /$1.html
