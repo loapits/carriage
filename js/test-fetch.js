@@ -63,8 +63,6 @@ window.addEventListener('popstate', () => {
     loadPage('updates.html');
   } else if (location.pathname == '/about_author.html'){
     loadPage('about_author.html');
-  } else if (location.pathname == '/updates.html'){
-    loadPage('updates.html');
   } else if (location.pathname == '/radio.html'){
     loadAllScr('radio.html', 'js/script(radio).js');
   } else if (location.pathname == '/questions_questions_questions_questions.html'){

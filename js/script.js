@@ -53,7 +53,7 @@
 			});
 		}		
 		
-		function playPauseSong(id) {
+		function playPauseSong(id) {			
 			if (Song) {
 				if (id == id_song) {
 					if (Song.paused) {
@@ -78,6 +78,8 @@
 			}
 		}
 
+
+		console.log();
 		function retrySong() {
 			if (Song.loop == false){
 				Song.loop = true;
