@@ -24,6 +24,7 @@
 			$('.muzlog').attr('src', songs[id][4]);
 
 			Song.play();
+
 			Song.volume = volume;
 			Song.addEventListener('timeupdate', () => {
 				curtime = Song.currentTime;
@@ -164,17 +165,13 @@
 	      })
 	  	}
 		});
-		
-		$('.song, .play, .pause, .prevbtn, .nextbtn').on('click', function() {		
+				
 			window.addEventListener('storage', function(){
-				setTimeout(() => {
 					Song.pause();
 					$('.play').css({'background':'url(img/icons/player/play.png) no-repeat center top/cover'});
 					$('.play-pause_song').css({'background':'url(img/icons/player/playbutton.png) no-repeat center top/cover'});	
 					console.log('Песня на паузе');
 					return playNewSong(id);
-				}, 500);
 			})
-		})
 	})
 })(jQuery);
