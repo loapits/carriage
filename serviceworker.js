@@ -17,7 +17,7 @@ const staticAssets = [
   './js/volume.js',
   './js/mobile-menu.js',
   './img/stub.jpg',
-  './img/icons/Без fgdfd1.png'
+  './img/icons/wifi.png'
 ];
 
 
