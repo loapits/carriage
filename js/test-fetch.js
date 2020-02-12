@@ -1,7 +1,5 @@
 'use strict';
-let body = document.querySelector('body'),
-    a = document.querySelector('main'),
-    link = document.querySelectorAll('.link');
+let link = document.querySelectorAll('.link');
 
 for (let i = 0; i < link.length; i++) {
   link[i].addEventListener('click', e => {
@@ -22,7 +20,7 @@ function loadPage(url) {
   })
 };
 
-function removEl(elId) {
+/* function removEl(elId) {
   let el = document.getElementById(elId);
   if (el) {
     el.remove();
@@ -30,13 +28,13 @@ function removEl(elId) {
   } else {
     console.log(`Элемент ${elId} отсутствует`);
   } 
-}
-
+}*/
 function loadPlayer() {
   let src2 = document.createElement("script");
   src2.src = 'js/script.js';
   document.getElementsByTagName("main")[0].appendChild(src2);
 }
+
 function loadPlaylist(urls) {
   let src1 = document.createElement("script");
   src1.src = urls;
@@ -52,8 +50,8 @@ async function loadAllScr(url, urls) {
   await loadPlaylist(urls);
   await loadPage(url);
   await loadPlayer()
-  await removEl('playlist');
-  await removEl('player');
+  // await removEl('playlist');
+  // await removEl('player');
 };
 
 window.addEventListener('popstate', () => {
@@ -99,11 +97,7 @@ document.addEventListener('click', event => {
       loadAllScr('radio.html', 'js/script(radio).js');
       changeURL('radio.html', 'Radio');
       break;
-  }
-});
-
-document.addEventListener('click', event => {
-  switch (event.target.id) {
+      
     case 'QQQQ':
       loadAllScr('questions_questions_questions_questions.html', 'js/script(QQQQ).js');
       changeURL('questions_questions_questions_questions.html', 'QQQQ');

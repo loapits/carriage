@@ -72,6 +72,31 @@
     padding-top: 20px;
     padding-bottom: 40px;
   }
+  /* Offline page */
+  .offline{
+    margin-top: 130px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+  }
+  .offline h1{
+    width: 90%;
+    font-size: 24px;
+    font-weight: 600;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
+    display: block;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .offline img{
+    margin-top: 40px;
+    width: 250px;
+    height: 250px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
   /* Albums */
   #index{
     display: flex;
@@ -551,6 +576,31 @@
     padding-top: 20px;
     padding-bottom: 40px;
   }
+  /* Offline page */
+  .offline{
+    margin-top: 130px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+  }
+  .offline h1{
+    width: 90%;
+    font-size: 22px;
+    font-weight: 600;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
+    display: block;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .offline img{
+    margin-top: 40px;
+    width: 250px;
+    height: 250px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
   /* Albums */
   #index{
     display: flex;
@@ -1026,6 +1076,31 @@
     padding-top: 10px;
     padding-bottom: 40px;
   }
+  /* Offline page */
+  .offline{
+    margin-top: 130px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+  }
+  .offline h1{
+    width: 90%;
+    font-size: 22px;
+    font-weight: 600;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
+    display: block;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .offline img{
+    margin-top: 40px;
+    width: 250px;
+    height: 250px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
   /* Albums */
   #index{
     display: flex;
@@ -1482,6 +1557,31 @@
     width: 100%;
     padding-top: 10px;
     padding-bottom: 40px;
+  }
+  /* Offline page */
+  .offline{
+    margin-top: 130px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+  }
+  .offline h1{
+    width: 90%;
+    font-size: 21px;
+    font-weight: 600;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
+    display: block;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .offline img{
+    margin-top: 40px;
+    width: 250px;
+    height: 250px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   /* Albums */
   #index{
@@ -2731,6 +2831,31 @@
     transform: scale(2, 1.5) skewX(20deg);
     letter-spacing: 1em;
     font-size: 12px;
+  }
+  /* Offline page */
+  .offline{
+    margin-top: 130px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+  }
+  .offline h1{
+    width: 90%;
+    font-size: 24px;
+    font-weight: 600;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
+    display: block;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .offline img{
+    margin-top: 40px;
+    width: 250px;
+    height: 250px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   /* Main */
   #index{

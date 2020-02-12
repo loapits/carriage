@@ -82,6 +82,31 @@
     padding-top: 10px;
     padding-bottom: 20px;
   }
+  /* Offline page */
+  .offline{
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+  }
+  .offline h1{
+    width: 90%;
+    font-size: 20px;
+    font-weight: 600;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
+    display: block;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .offline img{
+    margin-top: 40px;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
   /* Dark-background */
   .dark{
     margin: auto;
@@ -633,6 +658,31 @@
     width: 100%;
     padding-top: 5px;
     padding-bottom: 20px;
+  }
+   /* Offline page */
+   .offline{
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+  }
+  .offline h1{
+    width: 90%;
+    font-size: 17px;
+    font-weight: 600;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
+    display: block;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .offline img{
+    margin-top: 40px;
+    width: 180px;
+    height: 180px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   /* Dark-background */
   .dark{
@@ -1312,6 +1362,31 @@
     padding-top: 0px;
     padding-bottom: 0px;
   }
+   /* Offline page */
+   .offline{
+    margin-top: 130px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+  }
+  .offline h1{
+    width: 90%;
+    font-size: 21px;
+    font-weight: 600;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
+    display: block;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .offline img{
+    margin-top: 40px;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
   /* Dark-background */
   .dark{
     margin: auto;
@@ -1987,6 +2062,31 @@
     width: 100%;
     padding-top: 0px;
     padding-bottom: 0px;
+  }
+  /* Offline page */
+  .offline{
+    margin-top: 130px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+  }
+  .offline h1{
+    width: 90%;
+    font-size: 21px;
+    font-weight: 600;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
+    display: block;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .offline img{
+    margin-top: 40px;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   /* Dark-background */
   .dark{
@@ -2672,6 +2772,31 @@
     padding-top: 0px;
     padding-bottom: 0px;
   }
+  /* Offline page */
+  .offline{
+    margin-top: 130px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+  }
+  .offline h1{
+    width: 90%;
+    font-size: 21px;
+    font-weight: 600;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
+    display: block;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .offline img{
+    margin-top: 40px;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
   /* Dark-background */
   .dark{
     margin: auto;
@@ -3354,6 +3479,31 @@
     width: 100%;
     padding-top: 0px;
     padding-bottom: 0px;
+  }
+  /* Offline page */
+  .offline{
+    margin-top: 130px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+  }
+  .offline h1{
+    width: 90%;
+    font-size: 21px;
+    font-weight: 600;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
+    display: block;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .offline img{
+    margin-top: 40px;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   /* Dark-background */
   .dark{
@@ -4038,6 +4188,31 @@
     width: 100%;
     padding-top: 0px;
     padding-bottom: 0px;
+  }
+  /* Offline page */
+  .offline{
+    margin-top: 130px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+  }
+  .offline h1{
+    width: 90%;
+    font-size: 19px;
+    font-weight: 600;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
+    display: block;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .offline img{
+    margin-top: 40px;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   /* Dark-background */
   .dark{

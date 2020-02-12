@@ -24,7 +24,11 @@
 			$('.muzlog').attr('src', songs[id][4]);
 
 			Song.play();
-
+			if (!(localStorage.getItem('songs'))){
+				console.log(4534)
+			} else {
+				console.log('fgdfg');
+			}
 			Song.volume = volume;
 			Song.addEventListener('timeupdate', () => {
 				curtime = Song.currentTime;
@@ -77,9 +81,7 @@
 				return playNewSong(id);
 			}
 		}
-
-
-		console.log();
+		
 		function retrySong() {
 			if (Song.loop == false){
 				Song.loop = true;
@@ -96,7 +98,7 @@
 				retrySong(id);
 			}
 		});
-
+		
 		$('.song, .play, .pause').on('click',function() {
 			let id = $(this).attr('id');
 			localStorage.setItem('song', JSON.stringify(songs[id]));
@@ -167,13 +169,12 @@
 	      })
 	  	}
 		});
-				
-			window.addEventListener('storage', function(){
-					Song.pause();
-					$('.play').css({'background':'url(img/icons/player/play.png) no-repeat center top/cover'});
-					$('.play-pause_song').css({'background':'url(img/icons/player/playbutton.png) no-repeat center top/cover'});	
-					console.log('Песня на паузе');
-					return playNewSong(id);
-			})
+			
+		window.addEventListener('storage', function(){
+				Song.pause();
+				$('.play').css({'background':'url(img/icons/player/play.png) no-repeat center top/cover'});
+				$('.play-pause_song').css({'background':'url(img/icons/player/playbutton.png) no-repeat center top/cover'});	
+				console.log('Песня на паузе');
+		})
 	})
 })(jQuery);
