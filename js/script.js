@@ -9,7 +9,7 @@
 			$('.wrp').append('<div class="song" id="'+songs[i][0]+'"><div class="songH"></div><button class="play-pause_song"></button><div class="nameSong">'+songs[i][1]+'</div><div class="time">'+parseInt(songs[i][3]/60)+':'+parseInt(songs[i][3]%60)+'</div></div>');
 		};
 
-		function playNewSong(id) {
+		function playNewSong(id) {		
 			let curtime,
 			cur = -100;
 			$('.audio .nameSong_name').text(songs[id][1]);
@@ -169,7 +169,7 @@
 	      })
 	  	}
 		});
-			
+		
 		window.addEventListener('storage', function(){
 				Song.pause();
 				$('.play').css({'background':'url(img/icons/player/play.png) no-repeat center top/cover'});

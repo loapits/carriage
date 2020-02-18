@@ -1,10 +1,16 @@
 let volumeButon = document.querySelector('.volume-buttton'),
     volume = document.querySelector('.volume');
     
-volumeButon.addEventListener('click', () => { 
-  if (volume.style.display == 'flex'){
-    return volume.style.display = 'none';
-  } else {
-    return volume.style.display = 'flex';
+window.addEventListener('click', event => { 
+  if (event.target === volumeButon){
+    if (volume.style.display == 'flex'){
+      return volume.style.display = 'none';
+    } else {
+      return volume.style.display = 'flex';
+    }
   }
+  else{
+      return volume.style.display = 'none';
+  }
+ 
 });
