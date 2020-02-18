@@ -1,6 +1,7 @@
 body{
   font-family: "Segoe Print", sans-serif;
   background: url(../img/SkEHwU-aEvg.png) no-repeat center top/cover;
+  background-attachment: fixed;
 }
 .container{
   width: 1366px;
