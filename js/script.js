@@ -55,8 +55,30 @@
 				Song.play();
 				return playNewSong(id);
 			});
+
+
+			let prevSong = JSON.parse(localStorage.getItem('prevSong')); 
+			console.log('test: ', prevSong);
+			if (prevSong) {
+				if (prevSong != localStorage.getItem('song')) {
+					let parseSong = new Audio(prevSong[2]);
+					console.log('prevSong', parseSong);
+					console.log('Song:', Song);
+					
+					// prevSongObj = new Audio(parseSong[2]);
+					// prevSongObj.pause();
+				} 
+			} 
+			localStorage.setItem('prevSong', localStorage.getItem('song'));
 		}		
 		
+
+
+
+
+
+
+
 		function playPauseSong(id) {			
 			if (Song) {
 				if (id == id_song) {

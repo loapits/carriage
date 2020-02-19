@@ -18,7 +18,7 @@ function loadPage(url) {
     document.querySelector('main').innerHTML = main.innerHTML;
     return main;
   })
-};
+}
 
 /* function removEl(elId) {
   let el = document.getElementById(elId);
@@ -44,7 +44,7 @@ function loadPlaylist(urls) {
 function changeURL(url, title) {
   history.pushState({}, 'Carriage', url);
   document.getElementsByTagName('title')[0].innerHTML = title;
-};
+}
 
 async function loadAllScr(url, urls) {
   await loadPlaylist(urls);
@@ -55,7 +55,7 @@ async function loadAllScr(url, urls) {
 };
 
 window.addEventListener('popstate', () => {
-  if (location.pathname == '/index.html'){
+  if (location.pathname === '/index.html'){
     loadPage('index.html');
   } else if (location.pathname == '/updates.html'){
     loadPage('updates.html');
