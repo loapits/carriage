@@ -1,3 +1,4 @@
+'use strict';
 let volumeButon = document.querySelector('.volume-buttton'),
     volume = document.querySelector('.volume');
     

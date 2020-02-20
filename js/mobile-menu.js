@@ -1,3 +1,4 @@
+'use strict';
 let initialPoint,	finalPoint,
     header = document.querySelector('header'),
     navigationButton = document.querySelector('.navigation-button'),

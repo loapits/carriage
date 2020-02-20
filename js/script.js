@@ -24,11 +24,6 @@
 			$('.muzlog').attr('src', songs[id][4]);
 
 			Song.play();
-			if (!(localStorage.getItem('songs'))){
-				console.log(4534)
-			} else {
-				console.log('fgdfg');
-			}
 			Song.volume = volume;
 			Song.addEventListener('timeupdate', () => {
 				curtime = Song.currentTime;
@@ -36,13 +31,12 @@
 				$('.time_play').text(parseInt( curtime/60 )+':'+parseInt(curtime%60));
 				$('.progress').css({'left':cur+'%'});
 			});
-
-			Song.addEventListener('load', () => {
-				let load = Song.buffered.start(0);
+			Song.addEventListener('progress', () => {
+				let	load = Song.buffered.end(0);
 				load = -((songs[id_song][3]-load)*100)/songs[id_song][3];
-				$('.load').css({'left':load+'%'});
+				$('.load').css({'left':load+'%'}, 100);
 			});
-
+		
 			Song.addEventListener('ended', () => {
 				Song = new Audio(songs[id++][3]);
 				localStorage.setItem('song', JSON.stringify(songs[id]));
@@ -55,9 +49,7 @@
 				Song.play();
 				return playNewSong(id);
 			});
-
-
-			let prevSong = JSON.parse(localStorage.getItem('prevSong')); 
+			/* let prevSong = JSON.parse(localStorage.getItem('prevSong')); 
 			console.log('test: ', prevSong);
 			if (prevSong) {
 				if (prevSong != localStorage.getItem('song')) {
@@ -69,15 +61,9 @@
 					// prevSongObj.pause();
 				} 
 			} 
-			localStorage.setItem('prevSong', localStorage.getItem('song'));
-		}		
-		
+			localStorage.setItem('prevSong', localStorage.getItem('song')); */
 
-
-
-
-
-
+		}
 
 		function playPauseSong(id) {			
 			if (Song) {
@@ -97,7 +83,6 @@
 					$('.play-pause_song').css({'background':'url(img/icons/player/playbutton.png) no-repeat center top/cover'});
 					$('.song#'+id+' .play-pause_song').css({'background':'url(img/icons/player/pausebutton.png) no-repeat center top/cover'});
 					playNewSong(id);
-					retrySong();
 				}
 			} else {
 				return playNewSong(id);
@@ -105,12 +90,12 @@
 		}
 		
 		function retrySong() {
-			if (Song.loop == false){
-				Song.loop = true;
-			} else {
-				Song.loop = false;
-				$('.repeat').css({'background':'url(../img/icons/player/repeat.png) no-repeat center top/cover'})
-			}
+				if (Song.loop == false){
+					Song.loop = true;
+				} else {
+					Song.loop = false;
+					$('.repeat').css({'background':'url(../img/icons/player/repeat.png) no-repeat center top/cover'})
+				}
 		};
 
 		$('.repeat').on('click', function() {
@@ -126,6 +111,25 @@
 			localStorage.setItem('song', JSON.stringify(songs[id]));
 			localStorage.setItem('songs', JSON.stringify(songs));
 			$('.play-pause_song').css({'background':'url(img/icons/player/playbutton.png)no-repeat center top/cover'});
+		
+		//=======================
+				
+			let prevSong = JSON.parse(localStorage.getItem('prevSong')); 
+			console.log('test: ', prevSong);
+			if (prevSong) {
+				if (prevSong != localStorage.getItem('song')) {
+					let parseSong = new Audio(prevSong[2]);
+					console.log('prevSong', parseSong);
+					console.log('Song:', Song);
+					
+					// prevSongObj = new Audio(parseSong[2]);
+					// prevSongObj.pause();
+				} 
+			}
+			localStorage.setItem('prevSong', localStorage.getItem('song'));
+
+			//======================================
+
 			playPauseSong(id);
 			id++;
 			$('.nextbtn#next').attr('data-id', id);
@@ -198,5 +202,5 @@
 				$('.play-pause_song').css({'background':'url(img/icons/player/playbutton.png) no-repeat center top/cover'});	
 				console.log('Песня на паузе');
 		})
-	})
+	});
 })(jQuery);
