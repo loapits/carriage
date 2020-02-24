@@ -29,10 +29,11 @@ function loadPage(url) {
     console.log(`Элемент ${elId} отсутствует`);
   } 
 }*/
-    function loadPlayer() {
-      let src2 = document.createElement("script");
-      src2.src = 'js/script.js';
-      document.getElementsByTagName("main")[0].appendChild(src2);
+
+function loadPlayer() {
+  let src2 = document.createElement("script");
+  src2.src = 'js/script.js';
+  document.getElementsByTagName("main")[0].appendChild(src2);
 }
 
 function loadPlaylist(urls) {
@@ -49,7 +50,7 @@ function changeURL(url, title) {
 async function loadAllScr(url, urls) {
   await loadPlaylist(urls);
   await loadPage(url);
-  await loadPlayer()
+  await loadPlayer();
   // await removEl('playlist');
   // await removEl('player');
 };
