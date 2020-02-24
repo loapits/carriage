@@ -1,13 +1,9 @@
 'use strict';
 (function ($) {
 	$(document).ready(function() {
-		let	id_song, Song, i,
+		let	id_song, Song,
 		volume = 1, 
 		songs = songe;
-		
-		for (i = 0; i < songs.length; i++) {
-			$('.wrp').append('<div class="song" id="'+songs[i][0]+'"><div class="songH"></div><button class="play-pause_song"></button><div class="nameSong">'+songs[i][1]+'</div><div class="time">'+parseInt(songs[i][3]/60)+':'+parseInt(songs[i][3]%60)+'</div></div>');
-		};
 
 		function playNewSong(id) {		
 			let curtime,
@@ -15,7 +11,6 @@
 			$('.audio .nameSong_name').text(songs[id][1]);
 			$('title').text(songs[id][1]);
 			$('.play').attr('id', id);
-			
 			id_song = id;
 			Song = new Audio(songs[id][2]);
 			$('.play').css({'background':'url(img/icons/player/pause.png) no-repeat center top/cover'});
@@ -49,20 +44,6 @@
 				Song.play();
 				return playNewSong(id);
 			});
-			/* let prevSong = JSON.parse(localStorage.getItem('prevSong')); 
-			console.log('test: ', prevSong);
-			if (prevSong) {
-				if (prevSong != localStorage.getItem('song')) {
-					let parseSong = new Audio(prevSong[2]);
-					console.log('prevSong', parseSong);
-					console.log('Song:', Song);
-					
-					// prevSongObj = new Audio(parseSong[2]);
-					// prevSongObj.pause();
-				} 
-			} 
-			localStorage.setItem('prevSong', localStorage.getItem('song')); */
-
 		}
 
 		function playPauseSong(id) {			
@@ -90,12 +71,12 @@
 		}
 		
 		function retrySong() {
-				if (Song.loop == false){
-					Song.loop = true;
-				} else {
-					Song.loop = false;
-					$('.repeat').css({'background':'url(../img/icons/player/repeat.png) no-repeat center top/cover'})
-				}
+			if (Song.loop == false){
+				Song.loop = true;
+			} else {
+				Song.loop = false;
+				$('.repeat').css({'background':'url(../img/icons/player/repeat.png) no-repeat center top/cover'})
+			}
 		};
 
 		$('.repeat').on('click', function() {
@@ -106,36 +87,31 @@
 			}
 		});
 		
-		$('.song, .play, .pause').on('click',function() {
+		$('body').on('click', '.song, .play', function(event) {
 			let id = $(this).attr('id');
 			localStorage.setItem('song', JSON.stringify(songs[id]));
 			localStorage.setItem('songs', JSON.stringify(songs));
 			$('.play-pause_song').css({'background':'url(img/icons/player/playbutton.png)no-repeat center top/cover'});
-		
-		//=======================
-				
-			let prevSong = JSON.parse(localStorage.getItem('prevSong')); 
-			console.log('test: ', prevSong);
-			if (prevSong) {
-				if (prevSong != localStorage.getItem('song')) {
-					let parseSong = new Audio(prevSong[2]);
-					console.log('prevSong', parseSong);
-					console.log('Song:', Song);
-					
-					// prevSongObj = new Audio(parseSong[2]);
-					// prevSongObj.pause();
-				} 
-			}
-			localStorage.setItem('prevSong', localStorage.getItem('song'));
-
-			//======================================
-
+			
 			playPauseSong(id);
 			id++;
 			$('.nextbtn#next').attr('data-id', id);
 			id--;id--;
 			$('.prevbtn#prev').attr('data-id', id);
-		});
+		})
+
+		// $('.song, .play, .pause').on('click',function() {
+		// 	let id = $(this).attr('id');
+		// 	localStorage.setItem('song', JSON.stringify(songs[id]));
+		// 	localStorage.setItem('songs', JSON.stringify(songs));
+		// 	$('.play-pause_song').css({'background':'url(img/icons/player/playbutton.png)no-repeat center top/cover'});
+			
+		// 	playPauseSong(id);
+		// 	id++;
+		// 	$('.nextbtn#next').attr('data-id', id);
+		// 	id--;id--;
+		// 	$('.prevbtn#prev').attr('data-id', id);
+		// });
 
 		$('.nextbtn').on('click', function(){
 			let id = $(this).attr('data-id');
@@ -195,12 +171,12 @@
 	      })
 	  	}
 		});
-		
+	
 		window.addEventListener('storage', function(){
-				Song.pause();
-				$('.play').css({'background':'url(img/icons/player/play.png) no-repeat center top/cover'});
-				$('.play-pause_song').css({'background':'url(img/icons/player/playbutton.png) no-repeat center top/cover'});	
-				console.log('Песня на паузе');
+			Song.pause();
+			$('.play').css({'background':'url(img/icons/player/play.png) no-repeat center top/cover'});
+			$('.play-pause_song').css({'background':'url(img/icons/player/playbutton.png) no-repeat center top/cover'});	
+			console.log('Песня на паузе');
 		})
-	});
+	})
 })(jQuery);
