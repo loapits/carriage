@@ -3,7 +3,7 @@
     width: 1023px;
     margin: auto;
   }
-  button:active, li:active{
+  a:active, li:active{
     transform: translateY(1px);
     filter: saturate(150%);
   }
@@ -137,7 +137,7 @@
     text-shadow: 2px 2px 2px #fc3;
     font-weight: bold;
   }
-  .albums-list button{
+  .albums-list a{
     display: inline-flex;
     flex-wrap: wrap;
     width: 210px;
@@ -146,15 +146,15 @@
     outline: none;
     border: none;
   }
-  .albums-list button:hover{
+  .albums-list a:hover{
     cursor: pointer;
     box-shadow: 0 0 20px rgba(0, 0, 0, 1);
   }
-  .albums-list button:focus{
+  .albums-list a:focus{
     cursor: pointer;
     box-shadow: 0 0 20px rgba(0, 0, 0, 1);
   }
-  .albums-list button:active{
+  .albums-list a:active{
     transform: translateY(1px);
     filter: saturate(150%);
   }
@@ -553,7 +553,7 @@
     width: 991px;
     margin: auto;
   }
-  button:active, li:active{
+  a:active, li:active{
     transform: translateY(1px);
     filter: saturate(150%);
   }
@@ -739,7 +739,7 @@
     text-shadow: 2px 2px 2px #fc3;
     font-weight: bold;
   }
-  .albums-list button{
+  .albums-list a{
     display: inline-flex;
     flex-wrap: wrap;
     width: 250px;
@@ -748,15 +748,15 @@
     outline: none;
     border: none;
   }
-  .albums-list button:hover{
+  .albums-list a:hover{
     cursor: pointer;
     box-shadow: 0 0 20px rgba(0, 0, 0, 1);
   }
-  .albums-list button:focus{
+  .albums-list a:focus{
     cursor: pointer;
     box-shadow: 0 0 20px rgba(0, 0, 0, 1);
   }
-  .albums-list button:active{
+  .albums-list a:active{
     transform: translateY(1px);
     filter: saturate(150%);
   }
@@ -1194,7 +1194,7 @@
     width: 767px;
     margin: auto;
   }
-  button:active, li:active{
+  a:active, li:active{
     transform: translateY(1px);
     filter: saturate(150%);
   }
@@ -1442,7 +1442,7 @@
     text-shadow: 2px 2px 2px #fc3;
     font-weight: bold;
   }
-  .albums-list button{
+  .albums-list a{
     display: inline-flex;
     flex-wrap: wrap;
     width: 270px;
@@ -1451,15 +1451,15 @@
     outline: none;
     border: none;
   }
-  .albums-list button:hover{
+  .albums-list a:hover{
     cursor: pointer;
     box-shadow: 0 0 20px rgba(0, 0, 0, 1);
   }
-  .albums-list button:focus{
+  .albums-list a:focus{
     cursor: pointer;
     box-shadow: 0 0 20px rgba(0, 0, 0, 1);
   }
-  .albums-list button:active{
+  .albums-list a:active{
     transform: translateY(1px);
     filter: saturate(150%);
   }
@@ -1894,7 +1894,7 @@
     width: 719px;
     margin: auto;
   }
-  button:active, li:active{
+  a:active, li:active{
     transform: translateY(1px);
     filter: saturate(150%);
   }
@@ -2143,7 +2143,7 @@
     text-shadow: 2px 2px 2px #fc3;
     font-weight: bold;
   }
-  .albums-list button{
+  .albums-list a{
     display: inline-flex;
     flex-wrap: wrap;
     width: 270px;
@@ -2152,15 +2152,15 @@
     outline: none;
     border: none;
   }
-  .albums-list button:hover{
+  .albums-list a:hover{
     cursor: pointer;
     box-shadow: 0 0 20px rgba(0, 0, 0, 1);
   }
-  .albums-list button:focus{
+  .albums-list a:focus{
     cursor: pointer;
     box-shadow: 0 0 20px rgba(0, 0, 0, 1);
   }
-  .albums-list button:active{
+  .albums-list a:active{
     transform: translateY(1px);
     filter: saturate(150%);
   }
@@ -2603,7 +2603,7 @@
     width: 479px;
     margin: auto;
   }
-  button:active, li:active{
+  a:active, li:active{
     transform: translateY(1px);
     filter: saturate(150%);
   }
@@ -2852,7 +2852,7 @@
     text-shadow: 2px 2px 2px #fc3;
     font-weight: bold;
   }
-  .albums-list button{
+  .albums-list a{
     display: inline-flex;
     flex-wrap: wrap;
     width: 270px;
@@ -2861,15 +2861,15 @@
     outline: none;
     border: none;
   }
-  .albums-list button:hover{
+  .albums-list a:hover{
     cursor: pointer;
     box-shadow: 0 0 20px rgba(0, 0, 0, 1);
   }
-  .albums-list button:focus{
+  .albums-list a:focus{
     cursor: pointer;
     box-shadow: 0 0 20px rgba(0, 0, 0, 1);
   }
-  .albums-list button:active{
+  .albums-list a:active{
     transform: translateY(1px);
     filter: saturate(150%);
   }
@@ -3311,7 +3311,7 @@
     width: 374px;
     margin: auto;
   }
-  button:active, li:active{
+  a:active, li:active{
     transform: translateY(1px);
     filter: saturate(150%);
   }
@@ -3560,7 +3560,7 @@
     text-shadow: 2px 2px 2px #fc3;
     font-weight: bold;
   }
-  .albums-list button{
+  .albums-list a{
     display: inline-flex;
     flex-wrap: wrap;
     width: 270px;
@@ -3569,15 +3569,15 @@
     outline: none;
     border: none;
   }
-  .albums-list button:hover{
+  .albums-list a:hover{
     cursor: pointer;
     box-shadow: 0 0 20px rgba(0, 0, 0, 1);
   }
-  .albums-list button:focus{
+  .albums-list a:focus{
     cursor: pointer;
     box-shadow: 0 0 20px rgba(0, 0, 0, 1);
   }
-  .albums-list button:active{
+  .albums-list a:active{
     transform: translateY(1px);
     filter: saturate(150%);
   }
@@ -4020,7 +4020,7 @@
     width: 359px;
     margin: 0 auto;
   }
-  button:active, li:active{
+  a:active, li:active{
     transform: translateY(1px);
     filter: saturate(150%);
   }
@@ -4269,7 +4269,7 @@
     text-shadow: 2px 2px 2px #fc3;
     font-weight: bold;
   }
-  .albums-list button{
+  .albums-list a{
     display: inline-flex;
     flex-wrap: wrap;
     width: 220px;
@@ -4278,15 +4278,15 @@
     outline: none;
     border: none;
   }
-  .albums-list button:hover{
+  .albums-list a:hover{
     cursor: pointer;
     box-shadow: 0 0 20px rgba(0, 0, 0, 1);
   }
-  .albums-list button:focus{
+  .albums-list a:focus{
     cursor: pointer;
     box-shadow: 0 0 20px rgba(0, 0, 0, 1);
   }
-  .albums-list button:active{
+  .albums-list a:active{
     transform: translateY(1px);
     filter: saturate(150%);
   }
