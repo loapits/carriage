@@ -1239,8 +1239,6 @@
   }
   .navigation{
     background: rgba(0, 0, 0, 0.8);
-    box-shadow: 0 0 10px rgba(255, 240, 0, 1);
-    border-right: 2px solid rgb(255, 240, 0);
     display: flex;
     position: fixed;
     flex-wrap: wrap;
@@ -1940,8 +1938,6 @@
   }
   .navigation{
     background: rgba(0, 0, 0, 0.8);
-    box-shadow: 0 0 20px rgba(255, 240, 0, 1);
-    border-right: 2px solid rgb(255, 240, 0);
     display: flex;
     position: fixed;
     flex-wrap: wrap;
@@ -2649,8 +2645,6 @@
   }
   .navigation{
     background: rgba(0, 0, 0, 0.8);
-    box-shadow: 0 0 10px rgba(255, 240, 0, 1);
-    border-right: 2px solid rgb(255, 240, 0);
     display: flex;
     position: fixed;
     flex-wrap: wrap;
@@ -3357,8 +3351,6 @@
   }
   .navigation{
     background: rgba(0, 0, 0, 0.8);
-    box-shadow: 0 0 20px rgba(255, 240, 0, 1);
-    border-right: 2px solid rgb(255, 240, 0);
     display: flex;
     position: fixed;
     flex-wrap: wrap;
@@ -4066,8 +4058,6 @@
   }
   .navigation{
     background: rgba(0, 0, 0, 0.8);
-    box-shadow: 0 0 20px rgba(255, 240, 0, 1);
-    border-right: 2px solid rgb(255, 240, 0);
     display: flex;
     position: fixed;
     flex-wrap: wrap;
