@@ -7,7 +7,7 @@ body{
   width: 1366px;
   margin: auto;
 }
-button:active, li:active{
+a:active, li:active{
   transform: translateY(1px);
   filter: saturate(150%);
 }
@@ -187,7 +187,7 @@ main{
   text-shadow: 2px 2px 2px #fc3;
   font-weight: bold;
 }
-.albums-list button{
+.albums-list a{
   display: inline-flex;
   flex-wrap: wrap;
   width: 250px;
@@ -196,15 +196,15 @@ main{
   outline: none;
   border: none;
 }
-.albums-list button:hover{
+.albums-list a:hover{
   cursor: pointer;
   box-shadow: 0 0 20px rgba(0, 0, 0, 1);
 }
-.albums-list button:focus{
+.albums-list a:focus{
   cursor: pointer;
   box-shadow: 0 0 20px rgba(0, 0, 0, 1);
 }
-.albums-list button:active{
+.albums-list a:active{
   transform: translateY(1px);
   filter: saturate(150%);
 }

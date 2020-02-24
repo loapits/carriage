@@ -3,38 +3,21 @@ let link = document.querySelectorAll('.link');
 let songs = songe;
 
 for (let i = 0; i < link.length; i++) {
-  link[i].addEventListener('click', e => {
+  document.addEventListener('click', e => {
     e.preventDefault();
   })
-};
-
-/* function removEl(elId) {
-  let el = document.getElementById(elId);
-  if (el) {
-    el.remove();
-    console.log(`Элемент ${elId} удален`);
-  } else {
-    console.log(`Элемент ${elId} отсутствует`);
-  } 
-}*/
-
-// function loadPlayer() {
-//   let src2 = document.createElement("script");
-//   src2.src = 'js/script.js';
-//   document.getElementsByTagName("main")[0].appendChild(src2);
-// }
-
+}
 
 async function loadPage(url) {
   const hedMain = document.querySelector('main');
   const response = await fetch(url);
+  await appendPlaylist();
   const data = await response.text();
   const parser = await new DOMParser();
   const  parseText = await parser.parseFromString(data, 'text/html');
   const main = await parseText.querySelector('main');
   hedMain.innerHTML = await main.innerHTML;
 }
-
 
 function changeURL(url, title) {
   history.pushState({}, 'Carriage', url);
@@ -50,7 +33,25 @@ function alp(a, c) {
   }, 200);
 }
 
-alp(0, songs.length);
+function appendPlaylist() {
+  if (location.pathname === '/index.html') {
+    alp(0, songs.length);
+  } else if (location.pathname === '/updates.html') {
+    alp(0, songs.length);
+  } else if (location.pathname === '/about_author.html') {
+    alp(0, songs.length);
+  } else if (location.pathname === '/radio.html') {
+    alp(0, songs.length);
+  } else if (location.pathname === '/questions_questions_questions_questions.html') {
+    alp(25, 37);
+  } else if (location.pathname === '/level_up_part_one.html') {
+    alp(17, 25);
+  } else if (location.pathname === '/allworld.html') {
+    alp(12, 17);
+  } else if (location.pathname === '/early-morning-and-euphoria.html') {  
+    alp(38, 47);
+  }  
+};
 
 document.querySelector('body').addEventListener('click', event => {
   switch (event.target.id) {
@@ -59,49 +60,41 @@ document.querySelector('body').addEventListener('click', event => {
     case 'albums':
       loadPage('index.html');
       changeURL('index.html', 'Carriage');
-      alp(0, songs.length);
       break;
 
     case 'updatesHead':
       loadPage('updates.html');
       changeURL('updates.html', 'Updates');
-      alp(0, songs.length);
       break;
 
     case 'aboutMe':
       loadPage('about_author.html');
       changeURL('about_author.html', 'About me');
-      alp(0, songs.length);
       break;
 
     case 'radio':
       loadPage('radio.html');
       changeURL('radio.html', 'Radio');
-      alp(0, songs.length);
       break;
       
     case 'QQQQ':
       loadPage('questions_questions_questions_questions.html');
       changeURL('questions_questions_questions_questions.html', 'QQQQ');
-      alp(25, 37);
       break;
 
     case 'LVLUP':
       loadPage('level_up_part_one.html');
       changeURL('level_up_part_one.html', 'LVLUP(pt1)');
-      alp(17, 25);
       break;
 
     case 'ALLWORLD':
       loadPage('allworld.html');
       changeURL('allworld.html', 'ВЕСЬ МИР-ТЕАТР');
-      alp(12, 17);
       break;
 
     case 'EARLY':
       loadPage('early-morning-and-euphoria.html');
       changeURL('early-morning-and-euphoria.html', 'EARLY MORNING AND EUPHORIA');
-      alp(38, 46);
       break;
   }
 });
@@ -115,21 +108,18 @@ function addEl() {
     loadPage('about_author.html');
   } else if (location.pathname === '/radio.html') {
     loadPage('radio.html');
-    alp(0, songs.length);
   } else if (location.pathname === '/questions_questions_questions_questions.html') {
     loadPage('questions_questions_questions_questions.html');
-    alp(0, 25);
   } else if (location.pathname === '/level_up_part_one.html') {
     loadPage('level_up_part_one.html');
-    alp(26, 32);
   } else if (location.pathname === '/allworld.html') {
     loadPage('allworld.html');
-    alp(33, 40);
   } else if (location.pathname === '/early-morning-and-euphoria.html') {  
     loadPage('early-morning-and-euphoria.html');
-    alp(41, 46);
   }  
 }
+
+addEl();
 
 window.addEventListener('popstate', () => {
   addEl();
