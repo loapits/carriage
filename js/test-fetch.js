@@ -1,6 +1,6 @@
 'use strict';
-let link = document.querySelectorAll('.link');
-let songs = songe;
+let link = document.querySelectorAll('.link'),
+    songs = songe, i;
 
 for (let i = 0; i < link.length; i++) {
   document.addEventListener('click', e => {
@@ -9,14 +9,18 @@ for (let i = 0; i < link.length; i++) {
 }
 
 async function loadPage(url) {
-  const hedMain = document.querySelector('main');
-  const response = await fetch(url);
-  await appendPlaylist();
-  const data = await response.text();
-  const parser = await new DOMParser();
-  const  parseText = await parser.parseFromString(data, 'text/html');
-  const main = await parseText.querySelector('main');
-  hedMain.innerHTML = await main.innerHTML;
+  try {
+    const hedMain = document.querySelector('main');
+    const response = await fetch(url);
+    await appendPlaylist();
+    const data = await response.text();
+    const parser = await new DOMParser();
+    const  parseText = await parser.parseFromString(data, 'text/html');
+    const main = await parseText.querySelector('main');
+    hedMain.innerHTML = await main.innerHTML;
+  } catch (err) {
+    console.log('Ooops, something went wrong');
+  }
 }
 
 function changeURL(url, title) {
@@ -26,11 +30,10 @@ function changeURL(url, title) {
 
 function alp(a, c) {
 	setTimeout(() => {
-    for (let i = a; i < c; i++) {
+    for (i = a; i < c; i++) {
       $('.wrp').append('<div class="song" id="'+songs[i][0]+'"><div class="songH"></div><button class="play-pause_song"></button><div class="nameSong">'+songs[i][1]+'</div><div class="time">'+parseInt(songs[i][3]/60)+':'+parseInt(songs[i][3]%60)+'</div></div>');
-    };
-    console.log(1243124);
-  }, 200);
+    }
+  },200);
 }
 
 function appendPlaylist() {
@@ -49,7 +52,7 @@ function appendPlaylist() {
   } else if (location.pathname === '/allworld.html') {
     alp(12, 17);
   } else if (location.pathname === '/early-morning-and-euphoria.html') {  
-    alp(38, 47);
+    alp(38, 46);
   }  
 };
 

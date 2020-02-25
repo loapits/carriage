@@ -27,13 +27,17 @@
 				$('.progress').css({'left':cur+'%'});
 			});
 			Song.addEventListener('progress', () => {
-				let	load = Song.buffered.end(0);
-				load = -((songs[id_song][3]-load)*100)/songs[id_song][3];
-				$('.load').css({'left':load+'%'}, 100);
+				try {
+					let	load = Song.buffered.end(0);
+					load = -((songs[id_song][3]-load)*100)/songs[id_song][3];
+					$('.load').css({'left':load+'%'}, 100);
+				} catch (err) {
+					console.log('the provided index (0) is greater than or equal to the maximum border, everything is fine');
+				}
 			});
-		
+			afterPlay()
 			Song.addEventListener('ended', () => {
-				Song = new Audio(songs[id++][3]);
+				Song = new Audio(songs[id++][2]);
 				localStorage.setItem('song', JSON.stringify(songs[id]));
 				localStorage.setItem('songs', JSON.stringify(songs));
 				$('.play').css({'background':'url(img/icons/player/pause.png) no-repeat center top/cover'});
@@ -41,7 +45,6 @@
 				if (id != -1) {
 					$('.play-pause_song').css({'background':'url(img/icons/player/playbutton.png) no-repeat center top/cover'});
 				};
-				Song.play();
 				return playNewSong(id);
 			});
 		}
@@ -79,6 +82,26 @@
 			}
 		};
 
+		function afterPlay() {
+			if (location.pathname === '/questions_questions_questions_questions.html' && songs[id_song][5] != 'qqqq') {
+				id_song == -1;
+				Song.pause();
+				Song.currentTime = 0;
+			} else if (location.pathname === '/level_up_part_one.html' && songs[id_song][5] != 'lvlup') {
+				id_song == -1;
+				Song.pause();
+				Song.currentTime = 0;
+			} else if (location.pathname === '/allworld.html' && songs[id_song][5] != 'worldtheatre') {
+				id_song == -1;
+				Song.pause();
+				Song.currentTime = 0;
+			} else if (location.pathname === '/early-morning-and-euphoria.html' && songs[id_song][5] != 'euphoria') {  
+				id_song == -1;
+				Song.pause();
+				Song.currentTime = 0;
+			} 
+		} 
+
 		$('.repeat').on('click', function() {
 			let id = $(this).attr('data-id');
 			if (id == -1) {
@@ -98,20 +121,7 @@
 			$('.nextbtn#next').attr('data-id', id);
 			id--;id--;
 			$('.prevbtn#prev').attr('data-id', id);
-		})
-
-		// $('.song, .play, .pause').on('click',function() {
-		// 	let id = $(this).attr('id');
-		// 	localStorage.setItem('song', JSON.stringify(songs[id]));
-		// 	localStorage.setItem('songs', JSON.stringify(songs));
-		// 	$('.play-pause_song').css({'background':'url(img/icons/player/playbutton.png)no-repeat center top/cover'});
-			
-		// 	playPauseSong(id);
-		// 	id++;
-		// 	$('.nextbtn#next').attr('data-id', id);
-		// 	id--;id--;
-		// 	$('.prevbtn#prev').attr('data-id', id);
-		// });
+		});
 
 		$('.nextbtn').on('click', function(){
 			let id = $(this).attr('data-id');
@@ -124,6 +134,7 @@
 				$('.nextbtn#next').attr('data-id', id);
 				id--;id--;
 				$('.prevbtn#prev').attr('data-id', id);
+				afterPlay();
 			}
 		});
 
@@ -136,8 +147,9 @@
 				$('.nextbtn#next').attr('data-id', id);
 				id--;id--;
 				$('.prevbtn#prev').attr('data-id', id);
+				afterPlay();
 			}
-		});
+		});		
 
 		$('#myRange').on('change', function() {
 			let val = $(this).val();
@@ -165,7 +177,8 @@
 	          $('.progress').css({'left':xproc+'%'});
 	          Song.currentTime = sec;
 	        })
-	      });
+				});
+				
 	      $('.range').on('mouseout', function() {
 	      	$('.setTime').hide();
 	      })

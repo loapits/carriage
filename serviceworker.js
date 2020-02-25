@@ -1,5 +1,5 @@
-const staticCacheName = 'static-cache-v1.6';
-const dynamicCacheName = 'dynamic-cache-v1.6';
+const staticCacheName = 'static-cache-v1.7';
+const dynamicCacheName = 'dynamic-cache-v1.7';
 
 const staticAssets = [
   './',
@@ -20,7 +20,6 @@ const staticAssets = [
   './img/icons/wifi.png'
 ];
 
-
 self.addEventListener('install', async event => {
   const cache = await caches.open(staticCacheName);
   await cache.addAll(staticAssets);
@@ -32,7 +31,7 @@ self.addEventListener('activate', async event => {
   const checkKeys = cachesKeys.map(async key => {
       if (![staticCacheName, dynamicCacheName].includes(key)) {
           await caches.delete(key);
-      }
+      };
   });
   await Promise.all(checkKeys);
   console.log('Service worker has been activated');
