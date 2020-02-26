@@ -1,0 +1,1 @@
+"use strict";let volumeButon=document.querySelector(".volume-buttton"),volume=document.querySelector(".volume");document.addEventListener("click",event=>event.target===volumeButon?"flex"==volume.style.display?volume.style.display="none":volume.style.display="flex":volume.style.display="none");
