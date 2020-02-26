@@ -27,7 +27,7 @@ function changeURL(url, title) {
   history.pushState({}, 'Carriage', url);
   document.getElementsByTagName('title')[0].innerHTML = title;
 }
-
+ 
 function alp(a, c) {
 	setTimeout(() => {
     for (i = a; i < c; i++) {
@@ -98,6 +98,26 @@ document.querySelector('body').addEventListener('click', event => {
     case 'EARLY':
       loadPage('early-morning-and-euphoria.html');
       changeURL('early-morning-and-euphoria.html', 'EARLY MORNING AND EUPHORIA');
+      break;
+      
+    case 'vk':
+      window.location.href = "https://vk.com/carriageuknow";
+      break;
+
+    case 'sound':
+      window.location.href = "https://soundcloud.com/carriageuknow";
+      break;
+
+    case 'band':
+      window.location.href = "https://carriageuknow.bandcamp.com/";
+      break;
+
+    case 'sber':
+      window.location.href = "https://www.sberbank.kz/ru/individuals";
+      break;
+      
+    case 'qiwi':
+      window.location.href = "https://qiwi.com/p/79506252527";
       break;
   }
 });

@@ -35,7 +35,9 @@
 					console.log('the provided index (0) is greater than or equal to the maximum border, everything is fine');
 				}
 			});
-			afterPlay()
+
+			afterPlay();
+
 			Song.addEventListener('ended', () => {
 				Song = new Audio(songs[id++][2]);
 				localStorage.setItem('song', JSON.stringify(songs[id]));
@@ -45,7 +47,9 @@
 				if (id != -1) {
 					$('.play-pause_song').css({'background':'url(img/icons/player/playbutton.png) no-repeat center top/cover'});
 				};
+
 				return playNewSong(id);
+				
 			});
 		}
 
@@ -83,24 +87,22 @@
 		};
 
 		function afterPlay() {
-			if (location.pathname === '/questions_questions_questions_questions.html' && songs[id_song][5] != 'qqqq') {
-				id_song == -1;
-				Song.pause();
-				Song.currentTime = 0;
-			} else if (location.pathname === '/level_up_part_one.html' && songs[id_song][5] != 'lvlup') {
-				id_song == -1;
-				Song.pause();
-				Song.currentTime = 0;
-			} else if (location.pathname === '/allworld.html' && songs[id_song][5] != 'worldtheatre') {
-				id_song == -1;
-				Song.pause();
-				Song.currentTime = 0;
-			} else if (location.pathname === '/early-morning-and-euphoria.html' && songs[id_song][5] != 'euphoria') {  
-				id_song == -1;
-				Song.pause();
-				Song.currentTime = 0;
+			if (location.pathname === '/questions_questions_questions_questions.html' && songs[id_song][0] > 35) {
+				playNewSong(false);
+			} else if (location.pathname === '/level_up_part_one.html' && songs[id_song][0] > 2) {
+				playNewSong(false);
+			} else if (location.pathname === '/allworld.html' && songs[id_song][0] > 15) {
+				// playNewSong(songs[id_song][0] == false)
+				// Song.pause();
+				playNewSong(false);
+				// console.log(24);
+				// id_song == -1;
+				// Song.currentTime = 0;
+			} else if (location.pathname === '/early-morning-and-euphoria.html' && songs[id_song][0] > 44) {  
+				playNewSong(false);
 			} 
 		} 
+
 
 		$('.repeat').on('click', function() {
 			let id = $(this).attr('data-id');
