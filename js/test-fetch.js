@@ -1,6 +1,20 @@
 'use strict';
 let link = document.querySelectorAll('.link'),
-    songs = songe, i;
+    songs = songe, i,
+    slider = document.querySelector('#myRange'),
+    output = document.querySelector('#value'),
+    volumeButon = document.querySelector('.volume-buttton'),
+    volume = document.querySelector('.volume'),
+    initialPoint,	finalPoint,
+    header = document.querySelector('header'),
+    navigationButton = document.querySelector('.navigation-button'),
+    navigation = document.querySelector('.navigation'),
+    main = document.querySelector('main'),
+    hi = document.querySelector('.hi'),
+    title = document.querySelector('.header-title'),
+    footer = document.querySelector('footer'),
+    navigationButtonTwo = document.querySelector('.navigation-button-two');
+
 
 for (let i = 0; i < link.length; i++) {
   document.addEventListener('click', e => {
@@ -146,4 +160,88 @@ addEl();
 
 window.addEventListener('popstate', () => {
   addEl();
+});
+
+output.innerHTML = slider.value;
+slider.addEventListener('input', () => {
+	output.innerHTML = this.value;
+});
+
+slider.addEventListener('input', () => {
+	let x = slider.value;
+	let color = 'linear-gradient(90deg, rgb(255,233,153)' + x + '%, rgb(214,214,214)' + x + '%)';
+	slider.style.background	= color;
+	if (x == 0) {
+		document.querySelector('.volume-buttton').style.background	= 'url(../img/icons/player/mute.png) no-repeat center top/cover';
+	} else {
+		document.querySelector('.volume-buttton').style.background	= 'url(../img/icons/player/volume.png) no-repeat center top/cover';
+	}
+});
+
+
+function hideNavigation() {
+  setTimeout(() => {
+    navigation.style.left = '-400px';
+    main.style = 'opacity: 1';
+    hi.style = 'opacity: 1';
+    title.style = 'opacity: 1';
+    footer.style = 'opacity: 1';
+    setTimeout(() => {
+      navigationButtonTwo.style.display = 'flex';
+    }, 300);
+  }, 100);
+}
+
+function showNavigation() {
+  setTimeout(() => {
+    navigation.style.left = '0';
+    navigationButtonTwo.style.display = 'none';
+    main.style = 'opacity: 0.4';
+    hi.style = 'opacity: 0.4';
+    title.style = 'opacity: 0.4';
+    footer.style = 'opacity: 0.4';
+  }, 100);
+  
+}
+
+navigationButtonTwo.addEventListener('click', () => {
+  showNavigation();
+});
+
+navigationButton.addEventListener('click', () => {
+  hideNavigation();
+});
+
+header.addEventListener('touchstart', event => {
+	initialPoint = event.changedTouches[0];
+});
+
+header.addEventListener('touchend', event => {
+	finalPoint = event.changedTouches[0];
+	let xAbs = Math.abs(initialPoint.pageX - finalPoint.pageX);
+	let yAbs = Math.abs(initialPoint.pageY - finalPoint.pageY);
+	if (xAbs > 100 || yAbs > 100) {
+		if (xAbs > yAbs) {
+			if (finalPoint.pageX < initialPoint.pageX) {
+				hideNavigation();
+			}	else {
+        showNavigation();
+			}
+		}
+	}
+});
+
+
+
+
+document.addEventListener('click', event => { 
+  if (event.target === volumeButon){
+    if (volume.style.display == 'flex'){
+      return volume.style.display = 'none';
+    } else {
+      return volume.style.display = 'flex';
+    }
+  } else {
+      return volume.style.display = 'none';
+  }
 });
