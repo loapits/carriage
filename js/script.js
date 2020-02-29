@@ -1,197 +1,242 @@
 'use strict';
-(function ($) {
-	$(document).ready(function() {
-		let	id_song, Song,
-		volume = 1, 
-		songs = songe;
+let songs = songe, i, initialPoint,	finalPoint,
+    link = document.querySelectorAll('.link'),
+    header = document.querySelector('header'),
+    navigationButton = document.querySelector('.navigation-button'),
+    navigation = document.querySelector('.navigation'),
+    main = document.querySelector('main'),
+    hi = document.querySelector('.hi'),
+    title = document.querySelector('.header-title'),
+    footer = document.querySelector('footer'),
+    navigationButtonTwo = document.querySelector('.navigation-button-two'),
+    slider = document.querySelector('#myRange'),
+    output = document.querySelector('#value'),
+    volumeButon = document.querySelector('.volume-buttton'),
+    volume = document.querySelector('.volume');
 
-		function playNewSong(id) {		
-			let curtime,
-			cur = -100;
-			$('.audio .nameSong_name').text(songs[id][1]);
-			$('title').text(songs[id][1]);
-			$('.play').attr('id', id);
-			id_song = id;
-			Song = new Audio(songs[id][2]);
-			$('.play').css({'background':'url(img/icons/player/pause.png) no-repeat center top/cover'});
-			$('.song#'+id+' .play-pause_song').css({'background':'url(img/icons/player/pausebutton.png) no-repeat center top/cover'});
-			$('.albumcover').attr('src', songs[id][4]);
-			$('.muzlog').attr('src', songs[id][4]);
+for (let i = 0; i < link.length; i++) {
+  document.addEventListener('click', e => {
+    e.preventDefault();
+  })
+}
 
-			Song.play();
-			Song.volume = volume;
-			Song.addEventListener('timeupdate', () => {
-				curtime = Song.currentTime;
-				cur = -((songs[id_song][3]-curtime)*100)/songs[id_song][3];
-				$('.time_play').text(parseInt( curtime/60 )+':'+parseInt(curtime%60));
-				$('.progress').css({'left':cur+'%'});
-			});
-			Song.addEventListener('progress', () => {
-				try {
-					let	load = Song.buffered.end(0);
-					load = -((songs[id_song][3]-load)*100)/songs[id_song][3];
-					$('.load').css({'left':load+'%'}, 100);
-				} catch (err) {
-					console.log('the provided index (0) is greater than or equal to the maximum border, everything is fine');
-				}
-			});
+async function loadPage(url) {
+  try {
+    const hedMain = document.querySelector('main');
+    const response = await fetch(url);
+    await appendPlaylist();
+    const data = await response.text();
+    const parser = await new DOMParser();
+    const  parseText = await parser.parseFromString(data, 'text/html');
+    const main = await parseText.querySelector('main');
+    hedMain.innerHTML = await main.innerHTML;
+  } catch (err) {
+    console.log('Ooops, something went wrong');
+  }
+}
 
-			afterPlay();
+function changeURL(url, title) {
+  history.pushState({}, 'Carriage', url);
+  document.getElementsByTagName('title')[0].innerHTML = title;
+}
+ 
+function createPlaylist(a, c) {
+	setTimeout(() => {
+    for (i = a; i < c; i++) {
+      $('.wrp').append('<div class="song" id="'+songs[i][0]+'"><div class="songH"></div><button class="play-pause_song"></button><div class="nameSong">'+songs[i][1]+'</div><div class="time">'+parseInt(songs[i][3]/60)+':'+parseInt(songs[i][3]%60)+'</div></div>');
+    }
+  },200);
+}
 
-			Song.addEventListener('ended', () => {
-				Song = new Audio(songs[id++][2]);
-				localStorage.setItem('song', JSON.stringify(songs[id]));
-				localStorage.setItem('songs', JSON.stringify(songs));
-				$('.play').css({'background':'url(img/icons/player/pause.png) no-repeat center top/cover'});
-				$('.song#'+id+' .play-pause_song').css({'background':'url(img/icons/player/pausebutton.png) no-repeat center top/cover'});
-				if (id != -1) {
-					$('.play-pause_song').css({'background':'url(img/icons/player/playbutton.png) no-repeat center top/cover'});
-				};
+function appendPlaylist() {
+  if (location.pathname === '/index.html') {
+    createPlaylist(0, songs.length);
+  } else if (location.pathname === '/updates.html') {
+    createPlaylist(0, songs.length);
+  } else if (location.pathname === '/about_author.html') {
+    createPlaylist(0, songs.length);
+  } else if (location.pathname === '/radio.html') {
+    createPlaylist(0, songs.length);
+  } else if (location.pathname === '/questions_questions_questions_questions.html') {
+    createPlaylist(25, 37);
+  } else if (location.pathname === '/level_up_part_one.html') {
+    createPlaylist(17, 25);
+  } else if (location.pathname === '/allworld.html') {
+    createPlaylist(12, 17);
+  } else if (location.pathname === '/early-morning-and-euphoria.html') {  
+    createPlaylist(38, 46);
+  }  
+};
 
-				return playNewSong(id);
-				
-			});
-		}
+document.querySelector('body').addEventListener('click', event => {
+  switch (event.target.id) {
+    case 'logo-img':
+    case 'logo-two-img':
+    case 'albums':
+      loadPage('index.html');
+      changeURL('index.html', 'Carriage');
+      break;
 
-		function playPauseSong(id) {			
-			if (Song) {
-				if (id == id_song) {
-					if (Song.paused) {
-						Song.play();
-						Song.volume = volume;
-						$('.play').css({'background':'url(img/icons/player/pause.png) no-repeat center top/cover'});
-						$('.song#'+id+' .play-pause_song').css({'background':'url(img/icons/player/pausebutton.png) no-repeat center top/cover'});
-					} else {
-						Song.pause();
-						$('.play').css({'background':'url(img/icons/player/play.png) no-repeat center top/cover'});
-						$('.song#'+id+' .song').css({'background':'url(img/icons/player/playbutton.png) no-repeat center top/cover'});
-					}
-				}	else {
-					Song.pause();
-					$('.play-pause_song').css({'background':'url(img/icons/player/playbutton.png) no-repeat center top/cover'});
-					$('.song#'+id+' .play-pause_song').css({'background':'url(img/icons/player/pausebutton.png) no-repeat center top/cover'});
-					playNewSong(id);
-				}
-			} else {
-				return playNewSong(id);
+    case 'updatesHead':
+      loadPage('updates.html');
+      changeURL('updates.html', 'Updates');
+      break;
+
+    case 'aboutMe':
+      loadPage('about_author.html');
+      changeURL('about_author.html', 'About me');
+      break;
+
+    case 'radio':
+      loadPage('radio.html');
+      changeURL('radio.html', 'Radio');
+      break;
+      
+    case 'QQQQ':
+      loadPage('questions_questions_questions_questions.html');
+      changeURL('questions_questions_questions_questions.html', 'QQQQ');
+      break;
+
+    case 'LVLUP':
+      loadPage('level_up_part_one.html');
+      changeURL('level_up_part_one.html', 'LVLUP(pt1)');
+      break;
+
+    case 'ALLWORLD':
+      loadPage('allworld.html');
+      changeURL('allworld.html', 'ВЕСЬ МИР-ТЕАТР');
+      break;
+
+    case 'EARLY':
+      loadPage('early-morning-and-euphoria.html');
+      changeURL('early-morning-and-euphoria.html', 'EARLY MORNING AND EUPHORIA');
+      break;
+      
+    case 'vk':
+      window.location.href = "https://vk.com/carriageuknow";
+      break;
+
+    case 'sound':
+      window.location.href = "https://soundcloud.com/carriageuknow";
+      break;
+
+    case 'band':
+      window.location.href = "https://carriageuknow.bandcamp.com/";
+      break;
+
+    case 'sber':
+      window.location.href = "https://www.sberbank.kz/ru/individuals";
+      break;
+      
+    case 'qiwi':
+      window.location.href = "https://qiwi.com/p/79506252527";
+      break;
+  }
+});
+
+function addElement() {
+  if (location.pathname === '/index.html') {
+    loadPage('index.html');
+  } else if (location.pathname === '/updates.html') {
+    loadPage('updates.html');
+  } else if (location.pathname === '/about_author.html') {
+    loadPage('about_author.html');
+  } else if (location.pathname === '/radio.html') {
+    loadPage('radio.html');
+  } else if (location.pathname === '/questions_questions_questions_questions.html') {
+    loadPage('questions_questions_questions_questions.html');
+  } else if (location.pathname === '/level_up_part_one.html') {
+    loadPage('level_up_part_one.html');
+  } else if (location.pathname === '/allworld.html') {
+    loadPage('allworld.html');
+  } else if (location.pathname === '/early-morning-and-euphoria.html') {  
+    loadPage('early-morning-and-euphoria.html');
+  }  
+}
+
+addElement();
+
+window.addEventListener('popstate', () => {
+  addElement();
+});
+
+output.innerHTML = slider.value;
+slider.addEventListener('input', () => {
+	output.innerHTML = this.value;
+});
+
+slider.addEventListener('input', () => {
+	let x = slider.value;
+	let color = 'linear-gradient(90deg, rgb(255,233,153)' + x + '%, rgb(214,214,214)' + x + '%)';
+	slider.style.background	= color;
+	if (x == 0) {
+		document.querySelector('.volume-buttton').style.background	= 'url(../img/icons/player/mute.png) no-repeat center top/cover';
+	} else {
+		document.querySelector('.volume-buttton').style.background	= 'url(../img/icons/player/volume.png) no-repeat center top/cover';
+	}
+});
+
+function hideNavigation() {
+  setTimeout(() => {
+    navigation.style.left = '-400px';
+    main.style = 'opacity: 1';
+    hi.style = 'opacity: 1';
+    title.style = 'opacity: 1';
+    footer.style = 'opacity: 1';
+    setTimeout(() => {
+      navigationButtonTwo.style.display = 'flex';
+    }, 300);
+  }, 100);
+}
+
+function showNavigation() {
+  setTimeout(() => {
+    navigation.style.left = '0';
+    navigationButtonTwo.style.display = 'none';
+    main.style = 'opacity: 0.4';
+    hi.style = 'opacity: 0.4';
+    title.style = 'opacity: 0.4';
+    footer.style = 'opacity: 0.4';
+  }, 100);
+  
+}
+
+navigationButtonTwo.addEventListener('click', () => {
+  showNavigation();
+});
+
+navigationButton.addEventListener('click', () => {
+  hideNavigation();
+});
+
+header.addEventListener('touchstart', event => {
+	initialPoint = event.changedTouches[0];
+});
+
+header.addEventListener('touchend', event => {
+	finalPoint = event.changedTouches[0];
+	let xAbs = Math.abs(initialPoint.pageX - finalPoint.pageX);
+	let yAbs = Math.abs(initialPoint.pageY - finalPoint.pageY);
+	if (xAbs > 100 || yAbs > 100) {
+		if (xAbs > yAbs) {
+			if (finalPoint.pageX < initialPoint.pageX) {
+				hideNavigation();
+			}	else {
+        showNavigation();
 			}
 		}
-		
-		function retrySong() {
-			if (Song.loop == false){
-				Song.loop = true;
-			} else {
-				Song.loop = false;
-				$('.repeat').css({'background':'url(../img/icons/player/repeat.png) no-repeat center top/cover'})
-			}
-		};
-
-		function afterPlay() {
-			if (location.pathname === '/questions_questions_questions_questions.html' && songs[id_song][0] > 35) {
-				playNewSong(false);
-			} else if (location.pathname === '/level_up_part_one.html' && songs[id_song][0] > 2) {
-				playNewSong(false);
-			} else if (location.pathname === '/allworld.html' && songs[id_song][0] > 15) {
-				// playNewSong(songs[id_song][0] == false)
-				// Song.pause();
-				playNewSong(false);
-				// console.log(24);
-				// id_song == -1;
-				// Song.currentTime = 0;
-			} else if (location.pathname === '/early-morning-and-euphoria.html' && songs[id_song][0] > 44) {  
-				playNewSong(false);
-			} 
-		} 
+	}
+});
 
 
-		$('.repeat').on('click', function() {
-			let id = $(this).attr('data-id');
-			if (id == -1) {
-				$('.repeat').css({'background':'url(../img/icons/player/repeat_one.png) no-repeat center top/cover'})
-				retrySong(id);
-			}
-		});
-		
-		$('body').on('click', '.song, .play', function(event) {
-			let id = $(this).attr('id');
-			localStorage.setItem('song', JSON.stringify(songs[id]));
-			localStorage.setItem('songs', JSON.stringify(songs));
-			$('.play-pause_song').css({'background':'url(img/icons/player/playbutton.png)no-repeat center top/cover'});
-			
-			playPauseSong(id);
-			id++;
-			$('.nextbtn#next').attr('data-id', id);
-			id--;id--;
-			$('.prevbtn#prev').attr('data-id', id);
-		});
-
-		$('.nextbtn').on('click', function(){
-			let id = $(this).attr('data-id');
-			localStorage.setItem('song', JSON.stringify(songs[id]));
-			localStorage.setItem('songs', JSON.stringify(songs));
-			if (id != -1) {
-				$('.play-pause_song').css({'background':'url(img/icons/player/playbutton.png) no-repeat center top/cover'});
-				playPauseSong(id);
-				id++;
-				$('.nextbtn#next').attr('data-id', id);
-				id--;id--;
-				$('.prevbtn#prev').attr('data-id', id);
-				afterPlay();
-			}
-		});
-
-		$('.prevbtn').on('click', function() {
-			let id = $(this).attr('data-id');
-			if (id != -1) {
-				$('.play-pause_song').css({'background':'url(img/icons/player/playbutton.png) no-repeat center top/cover'});
-				playPauseSong(id);
-				id++;
-				$('.nextbtn#next').attr('data-id', id);
-				id--;id--;
-				$('.prevbtn#prev').attr('data-id', id);
-				afterPlay();
-			}
-		});		
-
-		$('#myRange').on('change', function() {
-			let val = $(this).val();
-			if (Song){
-				volume = val/100;
-				Song.volume = volume;
-			}
-		});
-
-		$('.range').on('mouseenter', function() {
-	    if (Song) {
-	      let id = $('.play').attr('id'),
-	      offset = $(this).offset(),
-	      dur = songs[id][3],
-	      w = $(this).width();
-	      $('.setTime').show();
-	      $('.range').on('mousemove', function(e) {
-	        let  x = e.pageX - offset.left,
-	        xproc = (x*100)/w,
-	        sec = (xproc*dur)/100;
-	        $('.setTime').css({'left':x - 40});
-	        $('.setTime').text(parseInt(sec/60)+':'+parseInt(sec%60));
-	        $('.range').on('click', function() {
-	          xproc = xproc-100;
-	          $('.progress').css({'left':xproc+'%'});
-	          Song.currentTime = sec;
-	        })
-				});
-				
-	      $('.range').on('mouseout', function() {
-	      	$('.setTime').hide();
-	      })
-	  	}
-		});
-	
-		window.addEventListener('storage', function(){
-			Song.pause();
-			$('.play').css({'background':'url(img/icons/player/play.png) no-repeat center top/cover'});
-			$('.play-pause_song').css({'background':'url(img/icons/player/playbutton.png) no-repeat center top/cover'});	
-			console.log('Песня на паузе');
-		})
-	})
-})(jQuery);
+document.addEventListener('click', event => { 
+  if (event.target === volumeButon){
+    if (volume.style.display == 'flex'){
+      return volume.style.display = 'none';
+    } else {
+      return volume.style.display = 'flex';
+    }
+  } else {
+      return volume.style.display = 'none';
+  }
+});

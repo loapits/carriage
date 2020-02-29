@@ -210,16 +210,16 @@ main{
 }
 /* Images */
 #QQQQ{
-  background: url(../img/albums/QQQQ.jpg) no-repeat center top/cover;
+  background: url(../img/covers/QQQQ.jpg) no-repeat center top/cover;
 }
 #LVLUP{
-  background: url(../img/albums/LEVELUP.png) no-repeat center top/cover;
+  background: url(../img/covers/LEVELUP.png) no-repeat center top/cover;
 }
 #ALLWORLD{
-  background: url(../img/albums/allworld.png) no-repeat center top/cover;
+  background: url(../img/covers/allworld.png) no-repeat center top/cover;
 }
 #EARLY{
-  background: url(../img/albums/EARLY.jpg) no-repeat center top/cover;
+  background: url(../img/covers/EARLY.jpg) no-repeat center top/cover;
 }
 /* Updates and about author */
 .head-info{
