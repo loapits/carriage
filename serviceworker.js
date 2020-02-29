@@ -12,10 +12,8 @@ const staticAssets = [
   './css/queries-mobile.css',
   './css/queries-desktop.css',
   './app.js',
+  './js/player.js',
   './js/script.js',
-  './js/test-fetch.js',
-  './js/volume.js',
-  './js/mobile-menu.js',
   './img/stub.jpg',
   './img/icons/wifi.png'
 ];
