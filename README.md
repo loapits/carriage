@@ -2,7 +2,7 @@
 <h1><img src="https://faradarata.000webhostapp.com/img/icons/favicon.png" alt="logo"> Carriage</h1>
 <p>First project</p>
 
-<h2>Technologies:</h2>
+<h2>What used:</h2>
 <ul>
   <li>JavaScript</li>
   <li>jQuery v.3.4.1</li>
