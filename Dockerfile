@@ -5,7 +5,6 @@ COPY package.json ./
 COPY package-lock.json ./
 RUN npm ci
 COPY . ./
-RUN npm run start
 
 FROM nginx:stable-alpine
 COPY ./ /usr/share/nginx/html
