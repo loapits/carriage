@@ -1,9 +1,9 @@
 {
   "name": "carriage",
   "version": "1.0.0",
-  "description": "first project",
+  "description": "carriage",
   "engines": {
-    "node": "13.7.0",
+    "node": "16.13.1",
     "npm": "6.14.8"
   },
   "main": "app.js",
@@ -11,17 +11,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/loapits/Carriage.git"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/loapits/Carriage/issues"
-  },
-  "homepage": "https://github.com/loapits/Carriage#readme",
   "dependencies": {
     "express": "^4.17.1",
     "path": "^0.12.7"
