@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<h1><img src="https://faradarata.000webhostapp.com/img/icons/favicon.png" alt="logo"> Carriage</h1>
+<h1><img src="https://carriage.loopitsone.xyz/img/icons/favicon.png" alt="logo"> Carriage</h1>
 <p>First project</p>
 
 <h2>Discriprion</h2>
