@@ -31,4 +31,4 @@ jobs:
       - run: mkdir "$HOME/.ssh"
       - run: echo "${{ secrets.PRIVATE_SSH }}" > "$HOME/.ssh/key"
       - run: chmod 600 "$HOME/.ssh/key"
-      - run: ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no amori@80.249.146.180 'cd ~/family && docker pull ${{ secrets.DOCKER_NAME}} && docker-compose up -d && docker system prune -f'
+      - run: ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no amori@195.49.215.85 'cd ~/family && docker pull ${{ secrets.DOCKER_NAME}} && docker-compose up -d && docker system prune -f'
