@@ -11,7 +11,7 @@ jobs:
     runs-on: [ubuntu-latest]
     env:
       LOGIN: ${{ secrets.DOCKER_LOGIN }}
-      NAME: ${{ secrets.DOCKER_NAME }}/carriage:latest
+      NAME: ${{ secrets.DOCKER_NAME }}
 
     steps:
       - name: Login to docker.io
